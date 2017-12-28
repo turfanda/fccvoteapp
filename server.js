@@ -5,7 +5,7 @@ var routes = require("./routes/index");
 var hbs = require("express-handlebars");
 var app = express();
 
-app.use('/public', express.static(process.cwd() + '/public'));
+app.use("/",express.static('public'));
 
 
 app.engine("hbs",hbs({extname:"hbs",defaultLayout:"main",layoutsDir:__dirname+"/views/layouts/"}));

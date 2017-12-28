@@ -1,0 +1,45 @@
+body{
+  background-color:red;
+}
+.navbar{
+  margin-bottom:0 !important;
+}
+.navbar-brand{
+padding:0 !important;
+}
+.logoSizeImg{
+width:83px;
+}
+.mainHeader{
+  background-image: url('https://cdn.glitch.com/917293c8-d516-417d-bd21-fb3af181b193%2FYVM-X-website-link-image.png?1514445243264');
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+  min-height:800px;
+}
+.definition{
+  padding:30px 10px;
+  background-color:rgb(42, 74, 74);
+  text-align: center;
+  min-height:400px;
+}
+.definition p{
+  color:white;
+  font-size:30px;
+  display:inline-block;
+  margin-bottom:50px;
+}
+.currentPolls{
+  padding:30px 10px;
+  background-color:rgb(201, 234, 229);
+  text-align: left;
+  min-height:400px;
+}
+.fontawsomeouter{
+color:rgb(201, 234, 229);
+}
+
+.fontawsomeinner{
+color:rgb(201, 234, 229);
+}
