@@ -1,13 +1,23 @@
-'use strict'
 
 var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var expressValidator = require('express-validator');
+var flash = require('connect-flash');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+var mongoose = require('mongoose');
 var routes = require("./routes/index");
 var hbs = require("express-handlebars");
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var app = express();
 
-app.use("/",express.static('public'));
+mongoose.connect(process.env.MONGO_URI,{ useMongoClient: true });
+var db = mongoose.connection;
+
+
 
 
 app.engine("hbs",hbs({extname:"hbs",defaultLayout:"main",layoutsDir:__dirname+"/views/layouts/"}));
@@ -16,6 +26,18 @@ app.set("view engine","hbs");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+
+app.use("/",express.static('public'));
+
+app.use(session({
+    secret: 'turfanda',
+    saveUninitialized: true,
+    resave: true
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use("/", routes);
 

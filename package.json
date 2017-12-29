@@ -7,6 +7,16 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "connect-flash": "*",
+    "cookie-parser": "^1.4.1",
+    "express-handlebars": "*",
+    "express-messages": "*",
+    "mongoose": "*",
+    "passport": "*",
+    "passport-http": "*",
+    "passport-local": "*",
     "bootstrap": "^3.3.7",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
