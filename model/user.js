@@ -12,7 +12,7 @@ var userDataSchema = new Schema({
 
 var userData = mongoose.model("userData",userDataSchema)
 
-module.exports.createUser = function(newUser, callback){
+var createUser = function(newUser, callback){
 	bcrypt.genSalt(10, function(err, salt) {
 	    bcrypt.hash(newUser.password, salt, function(err, hash) {
 	        newUser.password = hash;
@@ -23,3 +23,4 @@ module.exports.createUser = function(newUser, callback){
 
 
 module.exports = userData;
+module.exports = createUser;
