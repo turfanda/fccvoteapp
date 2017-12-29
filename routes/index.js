@@ -28,6 +28,9 @@ router.post('/register', function (req, res, next) {
 	  var username = req.body.username;
 	  var password = req.body.psw;
 	  var password2 = req.body.psw2;  
+    
+    console.log(password);
+     console.log(password2);
    
    req.checkBody('name', 'Name is required').notEmpty();
 	 req.checkBody('email', 'Email is required').notEmpty();
@@ -36,8 +39,11 @@ router.post('/register', function (req, res, next) {
 	 req.checkBody('password', 'Password is required').notEmpty();
 	 req.checkBody('password2', 'Passwords do not match').equals(req.body.psw);
 
+    console.log(1);
     var hatalar = req.validationErrors();
-  console.log(1);
+    
+    console.log(hatalar);
+
     if(hatalar)
       res.render('register',{hatalar:hatalar});
     else{
@@ -61,22 +67,6 @@ router.post('/register', function (req, res, next) {
     
     }
      console.log(3);
-    var userData = {
-            email: req.body.email,
-            username: req.body.username,
-            password: req.body.psw,
-            passwordConf: req.body.pswConf,
-        }
-
-        User.create(userData, function (error, user) {
-            if (error) {
-                return next(error);
-            } else {
-                req.session.userId = user._id;
-                return res.redirect('/profile');
-            }
-        });
-     console.log(4);
   }
   else{
     var err = new Error('All fields required.');
