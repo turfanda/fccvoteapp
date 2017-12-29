@@ -64,4 +64,26 @@ router.post('/login', function (req, res, next) {
 });
 
 
+passport.use(new LocalStrategy(function(username, psw, done) {
+   User.getUserByUsername(username, function(err, user){
+   	if(err) throw err;
+   	if(!user){
+   		return done(null, false, {message: 'Unknown User'});
+   	}
+   	User.comparePassword(psw, user.password, function(err, isMatch){
+   		if(err) throw err;
+   		if(isMatch){
+   			return done(null, user);
+   		} else {
+   			return done(null, false, {message: 'Invalid password'});
+   		}
+   	});
+   });
+  }));
+
+router.post('/login',passport.authenticate('local', {successRedirect:'/', failureRedirect:'/users/login',failureFlash: true}),function(req, res) {
+    res.redirect('/');
+});
+
+
 module.exports = router;

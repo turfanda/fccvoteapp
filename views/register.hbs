@@ -4,9 +4,11 @@
     
     {{#if hatalar}}
      <div class="alert alert-danger">
+       <ul>
       {{#each hatalar}}
-       {{msg}}<span> - </span>
+         <li>{{msg}}</li>
       {{/each}}
+       </ul>
        </div>
     {{/if}}
     
