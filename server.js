@@ -8,6 +8,7 @@ var flash = require('connect-flash');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var mongoose = require('mongoose');
+var mongo = require('mongodb');
 var routes = require("./routes/index");
 var hbs = require("express-handlebars");
 var bodyParser = require('body-parser');

@@ -1,7 +1,6 @@
 var express = require("express");
 var router = express.Router();
 var passport = require('passport');
-var mongoose = require('mongoose');
 var LocalStrategy = require('passport-local').Strategy;
 
 var User = require('../model/user');
@@ -52,14 +51,17 @@ router.post('/register', function (req, res, next) {
 			username: username,
 			password: password
 		});
-      newUser.save();
+      newUser.save(function(err){
+      
+        console.log(err);
+      
+      });
       
       //req.flash('basarili_mesaj', 'You are registered and can now login');
 
 		  res.redirect('/login');
     
     }
-     console.log(3);
   }
   else{
     var err = new Error('All fields required.');

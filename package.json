@@ -23,7 +23,8 @@
     "express-session": "^1.15.6",
     "express-validator": "^4.3.0",
     "jquery": "^3.2.1",
-    "mongoose": "^4.13.8"
+    "mongoose": "^4.13.8",
+    "mongodb": "*"
   },
   "engines": {
     "node": "8.x"
