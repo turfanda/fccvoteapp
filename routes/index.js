@@ -1,10 +1,14 @@
 var express = require("express");
 var router = express.Router();
 var passport = require('passport');
+var mongoose = require('mongoose');
 var LocalStrategy = require('passport-local').Strategy;
 
 var User = require('../model/user');
 
+
+mongoose.connect(process.env.MONGO_URI,{ useMongoClient: true });
+var db = mongoose.connection;
 
 router.get("/", function (req, res, nex) {
     res.render("index",{title: "Vote-App"});
@@ -43,15 +47,18 @@ router.post('/register', function (req, res, next) {
       res.render('register',{hatalar:hatalar});
     else{
 
-      var yeniUser = new User({
+      var newUser = new User({
 			name: name,
 			email:email,
 			username: username,
 			password: password
 		});
 
-      User.createUser(yeniUser, function(err, user){
-			if(err) throw err;
+      User.createUser(newUser, function(err, user){
+			if(err){
+        console.log(1);
+      res.send(err.msg);
+      }
 			console.log(user);
 		});
       
