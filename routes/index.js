@@ -53,7 +53,13 @@ router.post('/register', function (req, res, next) {
 		});
       
     
-    User.createUSs
+    User.createUser(newUser,function(err,user){
+    console.log("xyz");
+      if(err) {throw err;
+            console.log("asd");
+            }
+			console.log(user);
+    });
       
       //req.flash('basarili_mesaj', 'You are registered and can now login');
 
