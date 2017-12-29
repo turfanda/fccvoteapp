@@ -15,32 +15,33 @@ router.get("/register", function (req, res, nex) {
 });
 
 router.post('/register', function (req, res, next) {
-  if (req.body.password !== req.body.passwordConf) {
+  if (req.body.psw !== req.body.psw2) {
     var err = new Error('Passwords do not match.');
     err.status = 400;
     res.send("passwords dont match");
     return next(err);
   }
   
-  if (req.body.email &&req.body.username &&req.body.password &&req.body.passwordConf){
+  if (req.body.email &&req.body.username &&req.body.psw &&req.body.psw2){
     var name = req.body.name;
 	  var email = req.body.email;
 	  var username = req.body.username;
 	  var password = req.body.psw;
-	  var password2 = req.body.pswConf;  
+	  var password2 = req.body.psw2;  
    
    req.checkBody('name', 'Name is required').notEmpty();
 	 req.checkBody('email', 'Email is required').notEmpty();
 	 req.checkBody('email', 'Email is not valid').isEmail();
 	 req.checkBody('username', 'Username is required').notEmpty();
 	 req.checkBody('password', 'Password is required').notEmpty();
-	 req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
+	 req.checkBody('password2', 'Passwords do not match').equals(req.body.psw);
 
     var hatalar = req.validationErrors();
-    
+  console.log(1);
     if(hatalar)
       res.render('register',{hatalar:hatalar});
     else{
+       console.log(2);
       var yeniUser = new User({
 			name: name,
 			email:email,
@@ -59,12 +60,12 @@ router.post('/register', function (req, res, next) {
 		  res.redirect('/login');
     
     }
-    
+     console.log(3);
     var userData = {
             email: req.body.email,
             username: req.body.username,
-            password: req.body.password,
-            passwordConf: req.body.passwordConf,
+            password: req.body.psw,
+            passwordConf: req.body.pswConf,
         }
 
         User.create(userData, function (error, user) {
@@ -75,6 +76,7 @@ router.post('/register', function (req, res, next) {
                 return res.redirect('/profile');
             }
         });
+     console.log(4);
   }
   else{
     var err = new Error('All fields required.');
