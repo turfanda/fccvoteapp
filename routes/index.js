@@ -15,7 +15,6 @@ router.get("/register", function (req, res, nex) {
 });
 
 router.post('/register', function (req, res, next) {
-  console.log("register");
   if (req.body.password !== req.body.passwordConf) {
     var err = new Error('Passwords do not match.');
     err.status = 400;
@@ -27,8 +26,8 @@ router.post('/register', function (req, res, next) {
     var name = req.body.name;
 	  var email = req.body.email;
 	  var username = req.body.username;
-	  var password = req.body.password;
-	  var password2 = req.body.passwordConf;  
+	  var password = req.body.psw;
+	  var password2 = req.body.pswConf;  
    
    req.checkBody('name', 'Name is required').notEmpty();
 	 req.checkBody('email', 'Email is required').notEmpty();
@@ -52,15 +51,14 @@ router.post('/register', function (req, res, next) {
       User.createUser(yeniUser, function(err, user){
 			if(err) throw err;
 			console.log(user);
+      console.log("bu ne")
 		});
       
-      req.flash('basarili_mesaj', 'You are registered and can now login');
+      //req.flash('basarili_mesaj', 'You are registered and can now login');
 
 		  res.redirect('/login');
     
     }
-    
-    
     
     var userData = {
             email: req.body.email,

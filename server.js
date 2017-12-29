@@ -36,13 +36,13 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(function (req, res, next) {
+/*app.use(function (req, res, next) {
   res.locals.basarili_mesaj = req.flash('basarili_mesaj');
   res.locals.hata_mesaj = req.flash('hata_mesaj');
   res.locals.hata = req.flash('hata');
   res.locals.kullanici = req.kullanici || null;
   next();
-});
+});*/
 
 
 app.use("/", routes);
