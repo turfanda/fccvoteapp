@@ -47,7 +47,6 @@ router.post('/register', function (req, res, next) {
     
     User.createUser(newUser,function(err,user){
       if(err) {throw err;}
-			console.log(user);
     });
       req.flash('basarili_mesaj', 'You are registered and can now login');
 		  res.redirect('/login');
