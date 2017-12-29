@@ -17,14 +17,7 @@ router.get("/register", function (req, res, nex) {
 });
 
 router.post('/register', function (req, res, next) {
-  if (req.body.psw !== req.body.psw2) {
-    var err = new Error('Passwords do not match.');
-    err.status = 400;
-    res.send("passwords dont match");
-    return next(err);
-  }
   
-  if (req.body.email &&req.body.username &&req.body.psw &&req.body.psw2){
     var name = req.body.name;
 	  var email = req.body.email;
 	  var username = req.body.username;
@@ -56,15 +49,10 @@ router.post('/register', function (req, res, next) {
       if(err) {throw err;}
 			console.log(user);
     });
-      //req.flash('basarili_mesaj', 'You are registered and can now login');
+      req.flash('basarili_mesaj', 'You are registered and can now login');
 		  res.redirect('/login');
     }
-  }
-  else{
-    var err = new Error('All fields required.');
-    err.status = 400;
-    return next(err);
-  }
+
 });
 
 router.get("/login", function (req, res, nex) {
