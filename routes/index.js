@@ -29,36 +29,30 @@ router.post('/register', function (req, res, next) {
 	  var password = req.body.psw;
 	  var password2 = req.body.psw2;  
     
-    console.log(password);
-     console.log(password2);
    
    req.checkBody('name', 'Name is required').notEmpty();
 	 req.checkBody('email', 'Email is required').notEmpty();
 	 req.checkBody('email', 'Email is not valid').isEmail();
 	 req.checkBody('username', 'Username is required').notEmpty();
-	 req.checkBody('password', 'Password is required').notEmpty();
-	 req.checkBody('password2', 'Passwords do not match').equals(req.body.psw);
-
-    console.log(1);
+	 req.checkBody('psw', 'Password is required').notEmpty();
+	 req.checkBody('psw2', 'Passwords do not match').equals(req.body.psw);
     var hatalar = req.validationErrors();
-    
-    console.log(hatalar);
+
 
     if(hatalar)
       res.render('register',{hatalar:hatalar});
     else{
-       console.log(2);
+
       var yeniUser = new User({
 			name: name,
 			email:email,
 			username: username,
 			password: password
 		});
-      
+
       User.createUser(yeniUser, function(err, user){
 			if(err) throw err;
 			console.log(user);
-      console.log("bu ne")
 		});
       
       //req.flash('basarili_mesaj', 'You are registered and can now login');
