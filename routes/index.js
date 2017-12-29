@@ -31,14 +31,13 @@ router.post('/register', function (req, res, next) {
 	  var password = req.body.psw;
 	  var password2 = req.body.psw2;  
     
-   
    req.checkBody('name', 'Name is required').notEmpty();
 	 req.checkBody('email', 'Email is required').notEmpty();
 	 req.checkBody('email', 'Email is not valid').isEmail();
 	 req.checkBody('username', 'Username is required').notEmpty();
 	 req.checkBody('psw', 'Password is required').notEmpty();
 	 req.checkBody('psw2', 'Passwords do not match').equals(req.body.psw);
-    var hatalar = req.validationErrors();
+   var hatalar = req.validationErrors();
 
 
     if(hatalar)
@@ -54,17 +53,11 @@ router.post('/register', function (req, res, next) {
       
     
     User.createUser(newUser,function(err,user){
-    console.log("xyz");
-      if(err) {throw err;
-            console.log("asd");
-            }
+      if(err) {throw err;}
 			console.log(user);
     });
-      
       //req.flash('basarili_mesaj', 'You are registered and can now login');
-
 		  res.redirect('/login');
-    
     }
   }
   else{

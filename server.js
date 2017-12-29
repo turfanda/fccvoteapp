@@ -15,10 +15,15 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var app = express();
 
-mongoose.connect(process.env.MONGO_URI,{ useMongoClient: true });
+mongoose.connect(process.env.MONGO_URI, {useMongoClient: true}, function(err){
+    if(err) {
+        console.log('Some problem with the connection ' +err);
+    } else {
+        console.log('The Mongoose connection is ready');
+    }
+});
+
 var db = mongoose.connection;
-
-
 
 app.engine("hbs",hbs({extname:"hbs",defaultLayout:"main",layoutsDir:__dirname+"/views/layouts/"}));
 app.set("views",process.cwd()+"/views");
