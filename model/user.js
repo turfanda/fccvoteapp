@@ -14,3 +14,12 @@ var userData = mongoose.model("userData",userDataSchema)
 
 
 module.exports = userData;
+
+module.exports.createUser = function(newUser){
+	bcrypt.genSalt(10, function(err, salt) {
+	    bcrypt.hash(newUser.password, salt, function(err, hash) {
+	        newUser.password = hash;
+	        newUser.save();
+	    });
+	});
+}
