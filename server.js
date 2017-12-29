@@ -17,9 +17,6 @@ var app = express();
 mongoose.connect(process.env.MONGO_URI,{ useMongoClient: true });
 var db = mongoose.connection;
 
-
-
-
 app.engine("hbs",hbs({extname:"hbs",defaultLayout:"main",layoutsDir:__dirname+"/views/layouts/"}));
 app.set("views",process.cwd()+"/views");
 app.set("view engine","hbs");
@@ -38,6 +35,15 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(function (req, res, next) {
+  res.locals.basarılı_mesaj = req.flash('basarılı_mesaj');
+  res.locals.hata_mesaj = req.flash('hata_mesaj');
+  res.locals.hata = req.flash('hata');
+  res.locals.kullanici = req.kullanici || null;
+  next();
+});
+
 
 app.use("/", routes);
 

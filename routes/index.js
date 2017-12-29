@@ -1,7 +1,9 @@
 var express = require("express");
-var mongoose = require('mongoose');
 var router = express.Router();
-mongoose.connect(process.env.MONGO_URI,{ useMongoClient: true });
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+
+var User = require('../model/user');
 
 
 router.get("/", function (req, res, nex) {
@@ -22,7 +24,36 @@ router.post('/register', function (req, res, next) {
   }
   
   if (req.body.email &&req.body.username &&req.body.password &&req.body.passwordConf){
-      var userData = {
+    var name = req.body.name;
+	  var email = req.body.email;
+	  var username = req.body.username;
+	  var password = req.body.password;
+	  var password2 = req.body.passwordConf;  
+   
+   req.checkBody('name', 'Name is required').notEmpty();
+	 req.checkBody('email', 'Email is required').notEmpty();
+	 req.checkBody('email', 'Email is not valid').isEmail();
+	 req.checkBody('username', 'Username is required').notEmpty();
+	 req.checkBody('password', 'Password is required').notEmpty();
+	 req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
+
+    var hatalar = req.validationErrors();
+    
+    if(hatalar)
+      res.render('register',{hatalar:hatalar});
+    else{
+      var yeniUser = new User({
+			name: name,
+			email:email,
+			username: username,
+			password: password
+		});
+    
+    }
+    
+    
+    
+    var userData = {
             email: req.body.email,
             username: req.body.username,
             password: req.body.password,
