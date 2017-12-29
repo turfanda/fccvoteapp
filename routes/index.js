@@ -48,6 +48,15 @@ router.post('/register', function (req, res, next) {
 			username: username,
 			password: password
 		});
+      
+      User.createUser(yeniUser, function(err, user){
+			if(err) throw err;
+			console.log(user);
+		});
+      
+      req.flash('basarili_mesaj', 'You are registered and can now login');
+
+		  res.redirect('/login');
     
     }
     
