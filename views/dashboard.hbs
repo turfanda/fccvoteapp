@@ -2,12 +2,21 @@
     <section class="definition">
         <div class="container">
           <form action="/action_page.php">
-            <label for="pollName">Poll Name</label>
+            <p class="swhite">Please enter poll Name</p>
             <input type="text" id="pollName"name="pollName"><br>
-            <label for="option1">Option 1</label>
-            <input type="radio" name="options" id="option1">asdasdasdasdasds<br>
-            <label for="option1">Option 2</label>
-            <input type="radio" name="options" id="option2"><br>
+            <p class="swhite">Please enter poll Question</p>
+            <input type="text" id="pollQuestion"name="pollQuestion"><br>
+            <p class="swhite">Please enter poll options</p>
+            
+            
+            <div class="input-group">
+              <span class="input-group-addon"><i>A</i></span>
+              <input type="text" name="option1" id="option1">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon"><i>A</i></span>
+              <input type="text" name="option2" id="option2">
+            </div>
             
             <input type="submit" value="Submit">
           </form>
