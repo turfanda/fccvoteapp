@@ -25,11 +25,8 @@ module.exports.createUser = function(newUser,callback){
 }
 
 module.exports.getUserByUsername = function(username, callback){
-  console.log("getusername");
-  console.log(username);
 	var query = {username: username};
 	userData.findOne(query, callback);
-  console.log(userData.findOne(query, callback));
 }
 
 module.exports.getUserById = function(id, callback){

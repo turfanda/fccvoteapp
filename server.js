@@ -41,18 +41,9 @@ app.use(session({
     resave: true
 }));
 
-app.use(flash());
-
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(function (req, res, next) {
-  res.locals.basarili_mesaj = req.flash('basarili_mesaj');
-  res.locals.hata_mesaj = req.flash('hata_mesaj');
-  res.locals.hata = req.flash('hata');
-  res.locals.user = req.user || null;
-  next();
-});
 
 
 app.use(expressValidator({
@@ -72,7 +63,16 @@ app.use(expressValidator({
   }
 }));
 
+app.use(function (req, res, next) {
+  res.locals.basarili_mesaj = req.flash('basarili_mesaj');
+  res.locals.hata_mesaj = req.flash('hata_mesaj');
+  res.locals.hata = req.flash('hata');
+  res.locals.user = req.user || null;
+  next();
+});
 
+
+app.use(flash());
 app.use("/", routes);
 
 
