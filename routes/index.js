@@ -18,30 +18,29 @@ router.get("/register", function (req, res, nex) {
 });
 
 router.post('/register', function (req, res, next) {
-  
     var name = req.body.name;
 	  var email = req.body.email;
 	  var username = req.body.username;
 	  var password = req.body.psw;
 	  var password2 = req.body.psw2;  
     
-   req.checkBody('name', 'Name is required').notEmpty();
+    User.getUserByUsername(req.body.username, function(err, asd){
+    console.log(1);
+    console.log(asd);
+    if(err) throw err;
+   	if(asd){
+   		res.render('register',{hata_mesaj:"User name already in use"});
+   	}
+      else{
+         req.checkBody('name', 'Name is required').notEmpty();
 	 req.checkBody('email', 'Email is required').notEmpty();
 	 req.checkBody('email', 'Email is not valid').isEmail();
 	 req.checkBody('username', 'Username is required').notEmpty();
 	 req.checkBody('psw', 'Password is required').notEmpty();
 	 req.checkBody('psw2', 'Passwords do not match').equals(req.body.psw);
    var hatalar = req.validationErrors();
-   
-  User.getUserByUsername(username, function(err, user){
-    if(err) throw err;
-   	if(user){
-   		res.render('register',{hata:})
-   	}
-  });
-  
 
-   if(hatalar){
+  if(hatalar){
       res.render('register',{hatalar:hatalar});}
     else{
 
@@ -51,14 +50,16 @@ router.post('/register', function (req, res, next) {
 			username: username,
 			password: password
 		});
-      
-    
     User.createUser(newUser,function(err,user){
       if(err) {throw err;}
     });
       req.flash('basarili_mesaj', 'You are registered and can now login');
 		  res.redirect('/login');
     }
+      }
+  });
+    
+
 
 });
 
