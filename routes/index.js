@@ -11,7 +11,6 @@ router.get("/", function (req, res, nex) {
 
 router.get("/dashboard", ensureAuthenticated, function (req, res, nex) {
     res.render("dashboard");
-  console.log(req.user.name);
 });
 
 router.get("/register", function (req, res, nex) {
@@ -33,6 +32,14 @@ router.post('/register', function (req, res, next) {
 	 req.checkBody('psw', 'Password is required').notEmpty();
 	 req.checkBody('psw2', 'Passwords do not match').equals(req.body.psw);
    var hatalar = req.validationErrors();
+   
+  User.getUserByUsername(username, function(err, user){
+    if(err) throw err;
+   	if(user){
+   		res.render('register',{hata:})
+   	}
+  });
+  
 
    if(hatalar){
       res.render('register',{hatalar:hatalar});}
@@ -97,5 +104,13 @@ function ensureAuthenticated(req, res, next){
 		res.redirect('/login');
 	}
 }
+
+router.get('/logout', function(req, res){
+	req.logout();
+
+	req.flash('success_msg', 'You are logged out');
+
+	res.redirect('/');
+});
 
 module.exports = router;
