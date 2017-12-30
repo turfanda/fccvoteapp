@@ -3,6 +3,11 @@ var char=64;
 $(function(){
   $("#addOption").on("click",function(event ){
     event.preventDefault();
+    if($("#options li").length>6){
+      alert("Max option limit is 6");
+      return;
+    }
+
     var y =$("<li>")
     var x = $("<input type='text'>").attr("id",String.fromCharCode(char+1)).attr("name",String.fromCharCode(char+1))
     char=char+1;
@@ -10,13 +15,10 @@ $(function(){
     $("#options").append(z);
 
     $("#deleteOption").css("display","block");
-    
-
   });
   
   $("#deleteOption").on("click",function(event ){
     event.preventDefault();
-    //var s = "#"+String.fromCharCode(char);
     $("li:last").remove();
     char=char-1;
     
