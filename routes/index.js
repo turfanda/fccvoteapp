@@ -60,6 +60,7 @@ router.get("/login", function (req, res, nex) {
 passport.use(new LocalStrategy(function(username, psw, done) {
   console.log(1);
   console.log(username);
+  console.log(psw);
    User.getUserByUsername(username, function(err, user){
   console.log(2);
   console.log(user);
