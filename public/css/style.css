@@ -24,7 +24,7 @@ width:83px;
   text-align: center;
   min-height:400px;
 }
-.definition p{
+.definition .long{
   color:white;
   font-size:30px;
   display:inline-block;
@@ -101,5 +101,5 @@ button {
 font-size:20px;
 color:white;
   font-weight:bold;
-  margin-
+  margin:0;
 }
