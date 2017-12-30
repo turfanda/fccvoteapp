@@ -57,7 +57,6 @@ router.get("/login", function (req, res, nex) {
 passport.use(new LocalStrategy(function(username, psw, done) {
   console.log(1);
    User.getUserByUsername(username, function(err, user){
-  console.log(2);
    	if(err) throw err;
    	if(!user){
    		return done(null, false, {message: 'Unknown User'});
@@ -83,9 +82,14 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
-router.post('/login',passport.authenticate('local', {successRedirect:'/', failureRedirect:'/login',failureFlash: true}),function(req, res) {
+/*router.post('/login',passport.authenticate('local', {successRedirect:'/', failureRedirect:'/login',failureFlash: true}),function(req, res) {
     res.redirect('/');
+});*/
+
+router.post('/login',passport.authenticate('local'), function(req, res){
+  console.log("passport user", req.user);
 });
+
 
 
 module.exports = router;

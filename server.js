@@ -63,6 +63,8 @@ app.use(expressValidator({
   }
 }));
 
+app.use(flash());
+
 app.use(function (req, res, next) {
   res.locals.basarili_mesaj = req.flash('basarili_mesaj');
   res.locals.hata_mesaj = req.flash('hata_mesaj');
@@ -72,7 +74,7 @@ app.use(function (req, res, next) {
 });
 
 
-app.use(flash());
+
 app.use("/", routes);
 
 
