@@ -6,7 +6,11 @@ var LocalStrategy = require('passport-local').Strategy;
 var User = require('../model/user');
 
 router.get("/", function (req, res, nex) {
+  if(!req.user)
     res.render("index", { title: "Vote-App" });
+  else{
+  res.redirect("/dashboard");
+  }
 });
 
 router.get("/dashboard", ensureAuthenticated, function (req, res, nex) {

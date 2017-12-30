@@ -5,22 +5,23 @@ $(function(){
     event.preventDefault();
     var y =$("<li>")
     var x = $("<input type='text'>").attr("id",String.fromCharCode(char+1)).attr("name",String.fromCharCode(char+1))
+    char=char+1;
     var z =y.append(x);
     $("#options").append(z);
 
-    if($("li").length===0){
-      $("#deleteOption").css("display","none")
-    }
-    else{
-      $("#deleteOption").css("display","block");
-    }
+    $("#deleteOption").css("display","block");
+    
+
   });
   
   $("#deleteOption").on("click",function(event ){
     event.preventDefault();
-    var s = "#"+String.fromCharCode(char);
-    $(s).remove();
+    //var s = "#"+String.fromCharCode(char);
+    $("li:last").remove();
     char=char-1;
-
+    
+    if($("#options li").length===0){
+      $("#deleteOption").css("display","none")
+    }
   });
 })
