@@ -9,6 +9,11 @@ router.get("/", function (req, res, nex) {
     res.render("index",{title: "Vote-App"});
 });
 
+router.get("/dashboard", ensureAuthenticated, function (req, res, nex) {
+    res.render("dashboard");
+  console.log(req.user.name);
+});
+
 router.get("/register", function (req, res, nex) {
     res.render("register");
 });
@@ -30,7 +35,7 @@ router.post('/register', function (req, res, next) {
    var hatalar = req.validationErrors();
 
    if(hatalar){
-      res.render('register',{hatalar:hatalar, hata_mesaj:'correct below problems'});}
+      res.render('register',{hatalar:hatalar});}
     else{
 
       var newUser = new User({
@@ -81,8 +86,16 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
-router.post('/login',passport.authenticate('local', {successRedirect:'/', failureRedirect:'/login',failureFlash: true}),function(req, res) {
-    res.redirect('/');
+router.post('/login',passport.authenticate('local', {successRedirect:'/dashboard', failureRedirect:'/login',failureFlash: true}),function(req, res) {
+    res.redirect('/dashboard');
 });
+
+function ensureAuthenticated(req, res, next){
+	if(req.isAuthenticated()){
+		return next();
+	} else {
+		res.redirect('/login');
+	}
+}
 
 module.exports = router;
