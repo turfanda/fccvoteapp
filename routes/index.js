@@ -32,9 +32,8 @@ router.post('/register', function (req, res, next) {
 	 req.checkBody('psw2', 'Passwords do not match').equals(req.body.psw);
    var hatalar = req.validationErrors();
 
-
-    if(hatalar)
-      res.render('register',{hatalar:hatalar});
+   if(hatalar){
+      res.render('register',{hatalar:hatalar, hata_mesaj:'correct below problems'});}
     else{
 
       var newUser = new User({

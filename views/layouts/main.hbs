@@ -33,9 +33,21 @@
             </div>
         </div>
     </nav>
+       <div class="container">
+         {{#if basarili_mesaj}}
+            <div class="alert alert-success">{{basarili_mesaj}}</div>
+          {{/if}}
 
-          {{{body}}}
+          {{#if hata_mesaj}}
+            <div class="alert alert-danger">{{hata_mesaj}}</div>
+          {{/if}}
 
+          {{#if hata}}
+            <div class="alert alert-danger">{{hata}}</div>
+          {{/if}}
+        </div>
+    
+       {{{body}}}
     <script src="/js/jquery.js"></script>
     <script src="/js/bootstrap.js"></script>
     <script src="/js/main.js"></script>
