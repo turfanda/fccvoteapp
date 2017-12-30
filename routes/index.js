@@ -58,11 +58,6 @@ router.get("/login", function (req, res, nex) {
     res.render("login");
 });
 
-router.post('/login', function (req, res, next) {
-  console.log("login");
-});
-
-
 passport.use(new LocalStrategy(function(username, psw, done) {
    User.getUserByUsername(username, function(err, user){
    	if(err) throw err;
@@ -80,7 +75,7 @@ passport.use(new LocalStrategy(function(username, psw, done) {
    });
   }));
 
-router.post('/login',passport.authenticate('local', {successRedirect:'/', failureRedirect:'/users/login',failureFlash: true}),function(req, res) {
+router.post('/login',passport.authenticate('local', {successRedirect:'/', failureRedirect:'/views/login',failureFlash: true}),function(req, res) {
     res.redirect('/');
 });
 
