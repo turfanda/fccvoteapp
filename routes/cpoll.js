@@ -18,7 +18,11 @@ router.post("/",Common.ensureAuthenticated,function(req,res,next){
   req.checkBody('B', 'At least enter two option').notEmpty();
 
   var hatalar = req.validationErrors();
-
+  
+  if (hatalar) {
+    res.render('register', { hatalar: hatalar });
+  }
+  
   
 
 
