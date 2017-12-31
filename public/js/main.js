@@ -3,8 +3,8 @@ var char=64;
 $(function(){
   $("#addOption").on("click",function(event ){
     event.preventDefault();
-    if($("#options li").length>6){
-      alert("Max option limit is 6");
+    if($("#options li").length>4){
+      alert("Max option limit is 4");
       return;
     }
 
