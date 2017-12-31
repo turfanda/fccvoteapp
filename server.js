@@ -10,7 +10,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var mongoose = require('mongoose');
 var mongo = require('mongodb');
 var routes = require("./routes/index");
-var createpoll = require("./routes/createpoll");
+var cpoll = require("./routes/cpoll");
 var hbs = require("express-handlebars");
 var bodyParser = require('body-parser');
 var session = require('express-session');
@@ -75,7 +75,7 @@ app.use(function (req, res, next) {
 });
 
 
-app.use("/createpoll", createpoll);
+app.use("/cpoll", cpoll);
 app.use("/", routes);
 
 

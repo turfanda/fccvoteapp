@@ -70,6 +70,8 @@ router.get("/login", function (req, res, nex) {
     res.render("login");
 });
 
+
+
 passport.use(new LocalStrategy(function (username, password, done) {
     User.getUserByUsername(username, function (err, user) {
         if (err) throw err;
@@ -101,13 +103,7 @@ router.post('/login', passport.authenticate('local', { successRedirect: '/dashbo
     res.redirect('/dashboard');
 });
 
-function ensureAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-        return next();
-    } else {
-        res.redirect('/login');
-    }
-}
+
 
 router.get('/logout', function (req, res) {
     req.logout();
