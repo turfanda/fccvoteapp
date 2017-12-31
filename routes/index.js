@@ -4,6 +4,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 var User = require('../model/user');
+var Common = require('../common/common');
 
 router.get("/", function (req, res, nex) {
   if(!req.user)
@@ -13,7 +14,7 @@ router.get("/", function (req, res, nex) {
   }
 });
 
-router.get("/dashboard", ensureAuthenticated, function (req, res, nex) {
+router.get("/dashboard", Common.ensureAuthenticated, function (req, res, nex) {
     res.render("dashboard");
 });
 
