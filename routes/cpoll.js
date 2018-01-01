@@ -6,10 +6,17 @@ var Poll = require('../model/poll');
 var Common = require('../common/common');
 
 router.post("/",Common.ensureAuthenticated,function(req,res,next){  
-      Poll.getPollByPollname(req.body.pollName, function (err, asd) {
+   var pName=req.body.pollName;
+   var pQ=req.body.pollQuestion;
+   var pA=req.body.A;
+   var pB=req.body.B;
+   var pC=req.body.C;
+   var pD=req.body.D ;   
+  Poll.getPollByPollname(pName, function (err, asd) {
         if (err) throw err;
+        console.log(asd);
         if (asd) {
-            res.render('/dashboard', { hata_mesaj: "Poll name already in use" });
+            res.render('dashboard', { hata_mesaj: "Poll name already in use" });
         }
         else{
           req.checkBody('pollName', 'Poll Name is required').notEmpty();
@@ -23,12 +30,12 @@ router.post("/",Common.ensureAuthenticated,function(req,res,next){
           else{
             var newPoll = new Poll({
               userId: req.user.id,
-              pollName: req.body.pollName,
-              pollQuestion: req.body.pollQuestion,
-              A: req.body.A,
-              B: req.body.B,
-              C: req.body.C,
-              D: req.body.D
+              pollName: pName,
+              pollQuestion: pQ,
+              A: pA,
+              B: pB,
+              C: pC,
+              D: pD
             });
             Poll.createPoll(newPoll,function(err,poll){
               if(err) throw err;
@@ -37,7 +44,6 @@ router.post("/",Common.ensureAuthenticated,function(req,res,next){
             });
             req.flash('basarili_mesaj', 'Poll generated you can vote now');
             res.redirect('/dashboard');
-
           }
         }
     });
