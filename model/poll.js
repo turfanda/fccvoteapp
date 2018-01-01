@@ -6,10 +6,14 @@ var pollDataSchema = new Schema({
 	userId: {type: String,index:true},
   pollName: {type: String,index:true},
 	pollQuestion: {type: String},
-	A: {type: Number},
-	B: {type: Number},
-  C: {type: Number},
-  D: {type: Number}
+	Act: {type: Number},
+	Bct: {type: Number},
+  Cct: {type: Number},
+  Dct: {type: Number},
+  A: {type: String},
+	B: {type: String},
+  C: {type: String},
+  D: {type: String},
 });
 
 var pollData = mongoose.model("pollData",pollDataSchema);

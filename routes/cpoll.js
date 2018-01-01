@@ -29,11 +29,11 @@ router.post("/",Common.ensureAuthenticated,function(req,res,next){
     var newPoll = new Poll({
       userId: req.user.id,
       pollName: req.body.pollName,
-      pollQuestion: req.body.pollQuestion;,
-      A: {type: Number},
-      B: {type: Number},
-      C: {type: Number},
-      D: {type: Number}
+      pollQuestion: req.body.pollQuestion,
+      A: req.body.A,
+      B: req.body.B,
+      C: req.body.C,
+      D: req.body.D
     });
   
   }
