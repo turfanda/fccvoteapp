@@ -105,6 +105,9 @@ color:black;
 #deleteOption{
 display:none;
 }
+.panel-group .panel{
+margin-bottom:4px !important;
+}
 a:hover{
 text-decoration:none;
 }

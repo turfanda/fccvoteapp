@@ -8,8 +8,9 @@ function getAllPollonLoad(){
               polls=data
               var groupPanel = $("<div>").addClass("panel-group");
               $.each(polls,function(index,item){
-                var x = $("<a>").attr("href","https://www.google.com").attr("id",item.pollName).addClass("expendPoll").append($("<div>").addClass("panel panel-primary").attr("id",item.pollName).append($("<div>").addClass("panel-heading clickable").text(item.pollName)).append($("<div>").addClass("panel-body").text(item.pollQuestion)));
-              groupPanel.append(x);
+                //var x = $("<a>").attr("href","https://www.google.com").attr("id",item.pollName).addClass("expendPoll").append($("<div>").addClass("panel panel-primary").attr("id",item.pollName).append($("<div>").addClass("panel-heading clickable").text(item.pollName)).append($("<div>").addClass("panel-body").text(item.pollQuestion)));
+                var x = $("<a>").attr("href","https://www.google.com").attr("id",item.pollName).addClass("expendPoll").append($("<div>").addClass("panel panel-primary").attr("id",item.pollName).append($("<div>").addClass("panel-heading clickable").text(item.pollName)));  
+                groupPanel.append(x);
               });
               $(".jumbotron").append(groupPanel);
               
@@ -47,6 +48,7 @@ $(function(){
   
   $("body").on("click",".expendPoll",function(e){
     e.preventDefault();
-    alert($(this).attr("id"));
+    $()
+    $('#pollDetail').modal('show');
   });
 })
