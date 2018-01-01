@@ -6,8 +6,9 @@ function getAllPollonLoad(){
             url: "/getAllPoll",
             success:function(data){
               polls=data
-              console.log(data);
-              polls.each(function(){
+              var groupPanel = $("<div>").addClass("panel-group");
+              $.each(polls,function(index,item){
+                var x = $("div").addClass("")
               
               });
               
