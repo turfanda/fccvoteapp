@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 
 var User = require('../model/user');
+var Poll = require('../model/poll');
 var Common = require('../common/common');
 
 router.post("/",Common.ensureAuthenticated,function(req,res,next){
@@ -23,6 +24,18 @@ router.post("/",Common.ensureAuthenticated,function(req,res,next){
   
   if (hatalar) {
     res.render('dashboard', { hatalar: hatalar });
+  }
+  else{
+    var newPoll = new Poll({
+      userId: req.user.id,
+      pollName: req.body.pollName,
+      pollQuestion: req.body.pollQuestion;,
+      A: {type: Number},
+      B: {type: Number},
+      C: {type: Number},
+      D: {type: Number}
+    });
+  
   }
 });
 
