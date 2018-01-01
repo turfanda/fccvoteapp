@@ -33,6 +33,6 @@ module.exports.getPollById = function(id, callback){
 	pollData.findById(id, callback);
 }
 
-module.exports.getAllPoll = function(id, callback){
-	pollData.findById(id, callback);
+module.exports.getAllPoll = function(callback){
+	pollData.find(callback);
 }

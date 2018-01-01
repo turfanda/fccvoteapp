@@ -49,6 +49,18 @@ router.post("/",Common.ensureAuthenticated,function(req,res,next){
     });
   });
 
-router.get("")
+router.get("/getAllPoll",function(req,res,next){
+  if(req.user.id===null||undefined)
+    res.render("error",{error:"unauthenticated user"});
+  else{
+ Poll.getAllPoll(function(err,asd){
+   if (err) throw err;
+   else{
+     console.log(asd);
+   }
+        
+ });
+  }
+});
 
 module.exports = router;

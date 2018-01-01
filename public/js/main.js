@@ -3,14 +3,14 @@ var char=64;
 function getAllPollonLoad(){
   $.ajax({
             type: 'GET',
-            url: "/getAllPoll",
+            url: "/dashboard/getAllPoll",
             success:function(data){
-           
             }
         });
 }
 
 $(function(){
+  getAllPollonLoad();
   $("#addOption").on("click",function(event ){
     event.preventDefault();
     if($("#options li").length>4){
