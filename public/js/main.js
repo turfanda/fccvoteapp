@@ -53,7 +53,7 @@ $(function(){
     console.log(polls[index].pollName);
     $(".modal-title").text(polls[index].pollName);
     $(".modal-body").append($("<h5>").text(polls[index].pollQuestion));
-    $("modal-body").append($('<input type="radio" name="radio_name" />').)
+    $("modal-body").append($('<input type="radio" name="radio_name" />'));
     $('#pollDetail').modal('show');
   });
 })
