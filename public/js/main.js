@@ -1,5 +1,15 @@
 var char=64;
 
+function getAllPollonLoad(){
+  $.ajax({
+            type: 'GET',
+            url: "/getAllPoll",
+            success:function(data){
+           
+            }
+        });
+}
+
 $(function(){
   $("#addOption").on("click",function(event ){
     event.preventDefault();

@@ -49,4 +49,6 @@ router.post("/",Common.ensureAuthenticated,function(req,res,next){
     });
   });
 
+router.get("")
+
 module.exports = router;
