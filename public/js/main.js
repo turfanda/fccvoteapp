@@ -49,10 +49,11 @@ $(function(){
   
   $("body").on("click",".expendPoll",function(e){
     e.preventDefault();
-    console.log(polls[$(this).data("index")].pollName);
-    $(".modal-title h4").text(polls[$(this).data("index")].pollName);
-    $(".modal-title h5").text(polls[$(this).data("index")].pollQuestion);
-    $(".modal-body").append($("<p>").text(polls));
+    var index=$(this).data("index");
+    console.log(polls[index].pollName);
+    $(".modal-title").text(polls[index].pollName);
+    $(".modal-body").append($("<h5>").text(polls[index].pollQuestion));
+    $("modal-body").append($('<input type="radio" name="radio_name" />').)
     $('#pollDetail').modal('show');
   });
 })
