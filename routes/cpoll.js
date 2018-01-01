@@ -14,7 +14,6 @@ router.post("/",Common.ensureAuthenticated,function(req,res,next){
    var pD=req.body.D ;   
   Poll.getPollByPollname(pName, function (err, asd) {
         if (err) throw err;
-        console.log(asd);
         if (asd) {
             res.render('dashboard', { hata_mesaj: "Poll name already in use" });
         }

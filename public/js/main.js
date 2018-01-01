@@ -1,12 +1,13 @@
 var char=64;
-
+var polls;
 function getAllPollonLoad(){
   $.ajax({
             type: 'GET',
             url: "/getAllPoll",
             success:function(data){
-              var x =JSON.parse(data);
-              console.log(x);
+              polls=data
+              console.log(data);
+              
             }
         });
 }
