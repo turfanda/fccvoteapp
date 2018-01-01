@@ -7,6 +7,9 @@ function getAllPollonLoad(){
             success:function(data){
               polls=data
               console.log(data);
+              polls.each(function(){
+              
+              });
               
             }
         });
