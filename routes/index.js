@@ -4,6 +4,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 var User = require('../model/user');
+var Poll = require('../model/poll');
 var Common = require('../common/common');
 
 router.get("/", function (req, res, nex) {
@@ -68,7 +69,20 @@ router.get("/login", function (req, res, nex) {
     res.render("login");
 });
 
-
+router.get("/getAllPoll",function(req,res,next){
+  console.log(1);
+  if(req.user.id===null||undefined)
+    res.render("error",{error:"unauthenticated user"});
+  else{
+ Poll.getAllPoll(function(err,asd){
+   if (err) throw err;
+   else{
+     console.log(asd);
+   }
+        
+ });
+  }
+});
 
 passport.use(new LocalStrategy(function (username, password, done) {
     User.getUserByUsername(username, function (err, user) {

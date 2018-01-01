@@ -3,7 +3,7 @@ var char=64;
 function getAllPollonLoad(){
   $.ajax({
             type: 'GET',
-            url: "/dashboard/getAllPoll",
+            url: "/getAllPoll",
             success:function(data){
             }
         });
