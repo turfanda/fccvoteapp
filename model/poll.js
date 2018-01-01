@@ -20,12 +20,12 @@ var pollData = mongoose.model("pollData",pollDataSchema);
 
 module.exports = pollData;
 
-module.exports.createPoll = function(newUser,callback){
-
+module.exports.createPoll = function(newPoll,callback){
+  newPoll.save(callback)
 }
 
-module.exports.getPollByUsername = function(username, callback){
-	var query = {username: username};
+module.exports.getPollByPollname = function(pollName, callback){
+	var query = {pollName: pollName};
 	pollData.findOne(query, callback);
 }
 
