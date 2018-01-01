@@ -8,9 +8,10 @@ function getAllPollonLoad(){
               polls=data
               var groupPanel = $("<div>").addClass("panel-group");
               $.each(polls,function(index,item){
-                var x = $("div").addClass("")
-              
+                var x = $("<div>").addClass("panel panel-primary").append($("<div>").addClass("panel-heading").text(item.pollName)).append($("<div>").addClass("panel-body").text(item.pollQuestion));
+              groupPanel.append(x);
               });
+              $(".jumbotron").append(groupPanel);
               
             }
         });
