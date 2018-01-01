@@ -5,6 +5,8 @@ function getAllPollonLoad(){
             type: 'GET',
             url: "/getAllPoll",
             success:function(data){
+              var x =JSON.parse(data);
+              console.log(x);
             }
         });
 }

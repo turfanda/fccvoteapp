@@ -70,7 +70,6 @@ router.get("/login", function (req, res, nex) {
 });
 
 router.get("/getAllPoll",function(req,res,next){
-  console.log(1);
   if(req.user.id===null||undefined)
     res.render("error",{error:"unauthenticated user"});
   else{
@@ -78,6 +77,7 @@ router.get("/getAllPoll",function(req,res,next){
    if (err) throw err;
    else{
      console.log(asd);
+     res.Json(asd);
    }
         
  });
