@@ -35,6 +35,9 @@ router.post("/",Common.ensureAuthenticated,function(req,res,next){
       C: req.body.C,
       D: req.body.D
     });
+    Poll.createPoll();
+    req.flash('basarili_mesaj', 'Poll generated you can vote now');
+    res.redirect('/dashboard');
   
   }
 });
