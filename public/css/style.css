@@ -105,3 +105,6 @@ color:black;
 #deleteOption{
 display:none;
 }
+a:hover{
+text-decoration:none;
+}
