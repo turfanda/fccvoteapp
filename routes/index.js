@@ -73,7 +73,6 @@ router.get("/getAllPoll",Common.ensureAuthenticated,function(req,res,next){
  Poll.getAllPoll(function(err,asd){
    if (err) throw err;
    else{
-     console.log(asd);
      res.json(asd);
    }
         

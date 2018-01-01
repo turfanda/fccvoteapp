@@ -8,7 +8,7 @@ function getAllPollonLoad(){
               polls=data
               var groupPanel = $("<div>").addClass("panel-group");
               $.each(polls,function(index,item){
-                var x = $("<a>").attr("href","").attr("id",item.pollName).addClass("expendPoll").append($("<div>").addClass("panel panel-primary").attr("id",item.pollName).append($("<div>").addClass("panel-heading").text(item.pollName)).append($("<div>").addClass("panel-body").text(item.pollQuestion)));
+                var x = $("<div>").addClass("panel panel-primary").attr("id",item.pollName).append($("<div>").addClass("panel-heading clickable").text(item.pollName)).append($("<div>").addClass("panel-body").text(item.pollQuestion));
               groupPanel.append(x);
               });
               $(".jumbotron").append(groupPanel);
@@ -45,9 +45,9 @@ $(function(){
     }
   });
   
-  $(".expendPoll").on("click",function(event ){
-    event.preventDefault();
-    console.log("asd");
-  alert($(this).attr("id"));
+  $(".expendPoll").on("click",function(e){
+    console.log(1);
+    e.preventDefault();
+    alert("asd");
   });
 })
