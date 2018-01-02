@@ -37,3 +37,8 @@ module.exports.getPollById = function(id, callback){
 module.exports.getAllPoll = function(callback){
 	pollData.find(callback);
 }
+
+module.exports.updatePoll = function(pollName,voteValue,callback){
+  var query = {pollName: pollName};
+	pollData.Update(query, { $inc: { voteValue: 1 }},callback);
+}
