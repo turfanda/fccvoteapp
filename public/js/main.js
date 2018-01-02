@@ -1,4 +1,3 @@
-
 var char=64;
 var polls;
 function getAllPollonLoad(){
@@ -10,15 +9,21 @@ function getAllPollonLoad(){
               console.log(polls);
               var groupPanel = $("<div>").addClass("panel-group");
               $.each(polls,function(index,item){
-                var x = $("<div>").addClass("panel panel-primary").attr("id",item.pollName)
-                .append($("<div>").addClass("panel-heading").text(item.pollName).append("<span class='pull-right clickable'><i class='glyphicon glyphicon-chevron-up'></i></span>"))
-                .append($("<div>").addClass("panel-body").text(item.pollQuestion));
+                var y=$("<div>")
                 for(var i=1;i<item.optionCount+1;i++){
                 var z = String.fromCharCode(char+i);
                 var q =$("<div>").addClass("radio").append($("<input type='radio' name='options'>").val(z)).append($("<span>").text(item[z]));
-                x.append(q);
+                y.append(q);
                 }
-                x.append($("<div>").addClass("panel-footer").append($("<button>").addClass("btn btn-primary vote").text("Vote")).append($("<button>").addClass("btn btn-secondary showResult").text("Show Result")) );
+                
+                var qq=$("<button>").addClass("btn btn-primary vote").text("Vote");
+                var ww=$("<button>").addClass("btn btn-secondary showResult").text("Show Result");
+                
+                var x = $("<div>").addClass("panel panel-primary").attr("id",item.pollName)
+                .append($("<div>").addClass("panel-heading").text(item.pollName).append("<span class='pull-right clickable'><i class='fa fa-arrow-up'></i></span>"))
+                .append($("<div>").addClass("panel-body").text(item.pollQuestion).append(y).append(qq).append(ww));
+
+                //x.append($("<div>").addClass("panel-footer").append($("<button>").addClass("btn btn-primary vote").text("Vote")).append($("<button>").addClass("btn btn-secondary showResult").text("Show Result")) );
                 groupPanel.append(x);
               });
               $(".jumbotron").append(groupPanel);
@@ -31,7 +36,7 @@ $(function(){
   getAllPollonLoad();
   $("#addOption").on("click",function(event ){
     event.preventDefault();
-    if($("#options li").length>4){
+    if($("#options li").length>3){
       alert("Max option limit is 4");
       return;
     }
@@ -56,4 +61,18 @@ $(function(){
       $("#deleteOption").css("display","none")
     }
   });
+  
+  $(document).on('click', '.panel-heading span.clickable', function(e){
+    var $this = $(this);
+	if(!$this.hasClass('panel-collapsed')) {
+		$this.parents('.panel').find('.panel-body').slideUp();
+		$this.addClass('panel-collapsed');
+		$this.find('i').removeClass('fa-arrow-up').addClass('fa-arrow-down');
+	} else {
+		$this.parents('.panel').find('.panel-body').slideDown();
+		$this.removeClass('panel-collapsed');
+		$this.find('i').removeClass('fa-arrow-down').addClass('fa-arrow-up');
+	}
+})
+  
 })
