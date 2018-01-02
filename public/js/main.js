@@ -14,8 +14,9 @@ function getAllPollonLoad(){
                 .append($("<div>").addClass("panel-body").text(item.pollQuestion));
                 for(var i=1;i<item.optionCount+1;i++){
                 var z = String.fromCharCode(char+i)
-                var q = $("<input type='radio' name='options'>").val(z);
-                $("<span>").text(item.z).insertAfter("input");
+                var q = $("<input type='radio' name='options'>").val(z).append($("<p>").text(item[z]));
+                  console.log(item.z);
+                
                 x.append(q);
                 }
                 groupPanel.append(x);
