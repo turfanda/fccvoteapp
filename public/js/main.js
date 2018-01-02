@@ -15,15 +15,11 @@ function getAllPollonLoad(){
                 var q =$("<div>").addClass("radio").append($("<input type='radio' name='options'>").val(z)).append($("<span>").text(item[z]));
                 y.append(q);
                 }
-                
                 var qq=$("<button>").addClass("btn btn-primary vote").text("Vote");
                 var ww=$("<button>").addClass("btn btn-secondary showResult").text("Show Result");
-                
-                var x = $("<div>").addClass("panel panel-primary").attr("id",item.pollName)
-                .append($("<div>").addClass("panel-heading").text(item.pollName).append("<span class='pull-right clickable'><i class='fa fa-arrow-up'></i></span>"))
+                var x = $("<div>").addClass("panel panel-primary ").attr("id",item.pollName)
+                .append($("<div>").addClass("panel-heading").text(item.pollName).append("<span class='pull-right clickable panel-collapsed'><i class='fa fa-arrow-up'></i></span>"))
                 .append($("<div>").addClass("panel-body").text(item.pollQuestion).append(y).append(qq).append(ww));
-
-                //x.append($("<div>").addClass("panel-footer").append($("<button>").addClass("btn btn-primary vote").text("Vote")).append($("<button>").addClass("btn btn-secondary showResult").text("Show Result")) );
                 groupPanel.append(x);
               });
               $(".jumbotron").append(groupPanel);
