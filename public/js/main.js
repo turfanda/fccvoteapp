@@ -9,8 +9,14 @@ function getAllPollonLoad(){
               console.log(polls);
               var groupPanel = $("<div>").addClass("panel-group");
               $.each(polls,function(index,item){
-                //var x = $("<a>").attr("href","https://www.google.com").attr("id",item.pollName).addClass("expendPoll").append($("<div>").addClass("panel panel-primary").attr("id",item.pollName).append($("<div>").addClass("panel-heading clickable").text(item.pollName)).append($("<div>").addClass("panel-body").text(item.pollQuestion)));
-                var x = $("<a>").attr("href","https://www.google.com").attr("data-index",index).addClass("expendPoll").append($("<div>").addClass("panel panel-primary").attr("id",item.pollName).append($("<div>").addClass("panel-heading clickable").text(item.pollName)));  
+                var x = $("<a>").attr("href","https://www.google.com").attr("id",item.pollName).addClass("expendPoll")
+                .append($("<div>").addClass("panel panel-primary").attr("id",item.pollName)
+                .append($("<div>").addClass("panel-heading clickable").text(item.pollName))
+                .append($("<div>").addClass("panel-body").text(item.pollQuestion).)
+                
+                       
+                       
+                       );
                 groupPanel.append(x);
               });
               $(".jumbotron").append(groupPanel);
@@ -47,7 +53,7 @@ $(function(){
     }
   });
   
-  $("body").on("click",".expendPoll",function(e){
+  /*$("body").on("click",".expendPoll",function(e){
     e.preventDefault();
     var index=$(this).data("index");
     console.log(polls[index].pollName);
@@ -55,5 +61,5 @@ $(function(){
     $(".modal-body").append($("<h5>").text(polls[index].pollQuestion));
     $("modal-body").append($('<input type="radio" name="radio_name" />'));
     $('#pollDetail').modal('show');
-  });
+  });*/
 })
