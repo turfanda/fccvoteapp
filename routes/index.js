@@ -120,8 +120,9 @@ router.get('/logout', function (req, res) {
 });
 
 router.post('/vote',function(req,res){
-  console.log(req.body);
-  Poll.updatePoll(req.body.pollName,req.body.vote,function(err){
+
+  
+  Poll.updatePoll(req.body.pollName,req.body.vote+'ct',function(err){
     if(err) throw err;
   });
 });

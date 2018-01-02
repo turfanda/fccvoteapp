@@ -40,5 +40,12 @@ module.exports.getAllPoll = function(callback){
 
 module.exports.updatePoll = function(pollName,voteValue,callback){
   var query = {pollName: pollName};
-	pollData.Update(query, { $inc: { voteValue: 1 }},callback);
+  if(voteValue==="Act")
+	pollData.update(query, { $inc: { Act: 1 }},callback);
+    if(voteValue==="Bct")
+	pollData.update(query, { $inc: { Bct: 1 }},callback);
+    if(voteValue==="Cct")
+	pollData.update(query, { $inc: { Cct: 1 }},callback);
+    if(voteValue==="Dct")
+	pollData.update(query, { $inc: { Dct: 1 }},callback);
 }
