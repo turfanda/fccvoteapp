@@ -72,33 +72,16 @@ $(function(){
 });
   
   $(document).on("click",".vote",function(){
-    var pollName=$(this).parent().attr("id");
-    var vote =$('input[name=options]:checked').val();
+    var data ={
+    "pollName":$(this).parent().attr("id"),
+    "vote":$('input[name=options]:checked').val()
+    }
       $.ajax({
             type: 'post',
             url: "/vote",
-            success:function(data){
-              polls=data
-              var groupPanel = $("<div>").addClass("panel-group");
-              $.each(polls,function(index,item){
-                var y=$("<div>")
-                for(var i=1;i<item.optionCount+1;i++){
-                var z = String.fromCharCode(char+i);
-                var q =$("<div>").addClass("radio").append($("<input type='radio' name='options'>").val(z)).append($("<span>").text(item[z]));
-                y.append(q);
-                }
-                var qq=$("<button>").addClass("btn btn-primary vote").text("Vote");
-                var ww=$("<button>").addClass("btn btn-secondary showResult").text("Show Result");
-                var x = $("<div>").addClass("panel panel-primary ")
-                .append($("<div>").addClass("panel-heading").text(item.pollName).append("<span class='pull-right clickable panel-collapsed'><i class='fa fa-arrow-up'></i></span>"))
-                .append($("<div>").addClass("panel-body").attr("id",item.pollName).text(item.pollQuestion).append(y).append(qq).append(ww));
-                groupPanel.append(x);
-              });
-              $(".jumbotron").append(groupPanel);
-              
-            }
+            dataType: 'json',
+            data:data
         });
-    
   });
   
   $(".showResult").on("click",function(){});
