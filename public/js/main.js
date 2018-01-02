@@ -13,10 +13,8 @@ function getAllPollonLoad(){
                 .append($("<div>").addClass("panel-heading clickable").text(item.pollName))
                 .append($("<div>").addClass("panel-body").text(item.pollQuestion));
                 for(var i=1;i<item.optionCount+1;i++){
-                var z = String.fromCharCode(char+i)
-                var q = $("<input type='radio' name='options'>").val(z).append($("<p>").text(item[z]));
-                  console.log(item.z);
-                
+                var z = String.fromCharCode(char+i);
+                var q = $("<input type='radio' name='options'>").val(z).after("<p>asd</p>");
                 x.append(q);
                 }
                 groupPanel.append(x);
