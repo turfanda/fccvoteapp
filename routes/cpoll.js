@@ -8,6 +8,7 @@ var Common = require('../common/common');
 router.post("/",Common.ensureAuthenticated,function(req,res,next){  
    var pName=req.body.pollName;
    var pQ=req.body.pollQuestion;
+   var OpCount=req.body.optionCount;
    var pA=req.body.A;
    var pB=req.body.B;
    var pC=req.body.C;
@@ -31,6 +32,7 @@ router.post("/",Common.ensureAuthenticated,function(req,res,next){
               userId: req.user.id,
               pollName: pName,
               pollQuestion: pQ,
+              optionCount:OpCount,
               A: pA,
               B: pB,
               C: pC,

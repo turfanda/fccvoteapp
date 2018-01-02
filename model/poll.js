@@ -6,6 +6,7 @@ var pollDataSchema = new Schema({
 	userId: {type: String,index:true},
   pollName: {type: String,index:true},
 	pollQuestion: {type: String},
+  optionCount:{type: Number},
 	Act: {type: Number},
 	Bct: {type: Number},
   Cct: {type: Number},
