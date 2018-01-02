@@ -36,7 +36,11 @@ router.post("/",Common.ensureAuthenticated,function(req,res,next){
               A: pA,
               B: pB,
               C: pC,
-              D: pD
+              D: pD,
+              Act: 0,
+              Bct: 0,
+              Cct: 0,
+              Dct: 0,
             });
             Poll.createPoll(newPoll,function(err,poll){
               if(err) throw err;

@@ -17,9 +17,9 @@ function getAllPollonLoad(){
                 }
                 var qq=$("<button>").addClass("btn btn-primary vote").text("Vote");
                 var ww=$("<button>").addClass("btn btn-secondary showResult").text("Show Result");
-                var x = $("<div>").addClass("panel panel-primary ").attr("id",item.pollName)
+                var x = $("<div>").addClass("panel panel-primary ")
                 .append($("<div>").addClass("panel-heading").text(item.pollName).append("<span class='pull-right clickable panel-collapsed'><i class='fa fa-arrow-up'></i></span>"))
-                .append($("<div>").addClass("panel-body").text(item.pollQuestion).append(y).append(qq).append(ww));
+                .append($("<div>").addClass("panel-body").attr("id",item.pollName).text(item.pollQuestion).append(y).append(qq).append(ww));
                 groupPanel.append(x);
               });
               $(".jumbotron").append(groupPanel);
@@ -72,7 +72,11 @@ $(function(){
 	}
 });
   
-  $(".vote").on("click",function(){});
+  $(".vote").on("click",function(){
+  
+  $(this).parent().attr("id")
+  
+  });
   
   $(".showResult").on("click",function(){});
   
