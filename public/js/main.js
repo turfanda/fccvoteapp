@@ -72,9 +72,8 @@ $(function(){
 	}
 });
   
-  $(".vote").on("click",function(){
-  
-  $(this).parent().attr("id")
+  $(document).on("click",".vote",function(){
+  console.log($(this).parent().attr("id"));
   
   });
   
