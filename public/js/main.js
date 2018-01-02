@@ -30,6 +30,7 @@ function getAllPollonLoad(){
 
 $(function(){
   getAllPollonLoad();
+  
   $("#addOption").on("click",function(event ){
     event.preventDefault();
     if($("#options li").length>3){
@@ -69,6 +70,10 @@ $(function(){
 		$this.removeClass('panel-collapsed');
 		$this.find('i').removeClass('fa-arrow-down').addClass('fa-arrow-up');
 	}
-})
+});
+  
+  $(".vote").on("click",function(){});
+  
+  $(".showResult").on("click",function(){});
   
 })
