@@ -11,7 +11,7 @@ function getAllPollonLoad(){
               $.each(polls,function(index,item){
                 var y=$("<div>")
                 for(var i=0;i<item.pollItems.length;i++){
-                var q =$("<div>").addClass("radio").append($("<input type='radio' name='options'>").val()).append($("<span>").text(item[z]));
+                var q =$("<div>").addClass("radio").append($("<input type='radio' name='options'>").val(item.pollItems[i].optionName)).append($("<span>").text());
                 y.append(q);
                 }
                 var qq=$("<button>").addClass("btn btn-primary vote").text("Vote");
