@@ -10,9 +10,8 @@ function getAllPollonLoad(){
               var groupPanel = $("<div>").addClass("panel-group");
               $.each(polls,function(index,item){
                 var y=$("<div>")
-                for(var i=1;i<item.o;i++){
-                var z = String.fromCharCode(char+i);
-                var q =$("<div>").addClass("radio").append($("<input type='radio' name='options'>").val(z)).append($("<span>").text(item[z]));
+                for(var i=0;i<item.pollItems.length;i++){
+                var q =$("<div>").addClass("radio").append($("<input type='radio' name='options'>").val()).append($("<span>").text(item[z]));
                 y.append(q);
                 }
                 var qq=$("<button>").addClass("btn btn-primary vote").text("Vote");
