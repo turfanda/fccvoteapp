@@ -137,7 +137,6 @@ Poll.getPollByPollname(req.body.pollName,function(err,asd){
     res.json(asd);
   }
 });
-};
-});
+  });
 
 module.exports = router;
