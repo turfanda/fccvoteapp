@@ -57,24 +57,30 @@ $(function(){
    event.preventDefault();
   
     var x=[];
-    $("li").each(function(index){
-    var obj={
-      optionName:$(this).attr("id"),
-      optionVal:$(this).text(),
-      optionCount:0
-    }
-    x.push(obj);
-      
+    $("ol li input").each(function(index){
+      var obj={
+        optionName:$(this).attr("id"),
+        optionVal:$(this).val(),
+        optionCount:0
+      }
+      x.push(obj);
     });
-    
-  var data={
+    var data={
       pollName:$("#pollName").val(),
       pollQuestion:$("#pollQuestion").val(),
       pollItems:x
-   } 
-  
-  console.log(data);
-  
+   };
+    $.ajax({
+            type: 'post',
+            url: "/cpoll",
+            dataType: 'json',
+            data:data,
+            success:function(){
+            alert("vote taken");
+            }
+        });
+    
+    console.log("fire")
   });
   
   $(document).on('click', '.panel-heading span.clickable', function(e){
