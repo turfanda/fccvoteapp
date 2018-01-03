@@ -53,6 +53,30 @@ $(function(){
     }
   });
   
+  $("#submitPoll").on("click",function(event){
+   event.preventDefault();
+  
+    var x=[];
+    $("li").each(function(index){
+    var obj={
+      optionName:$(this).attr("id"),
+      optionVal:$(this).text(),
+      optionCount:0
+    }
+    x.push(obj);
+      
+    });
+    
+  var data={
+      pollName:$("#pollName").val(),
+      pollQuestion:$("#pollQuestion").val(),
+      pollItems:x
+   } 
+  
+  console.log(data);
+  
+  });
+  
   $(document).on('click', '.panel-heading span.clickable', function(e){
     var $this = $(this);
 	if(!$this.hasClass('panel-collapsed')) {
@@ -132,5 +156,7 @@ $(function(){
 
   
   });
+  
+  
   
 })
