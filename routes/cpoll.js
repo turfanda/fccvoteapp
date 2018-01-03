@@ -9,20 +9,12 @@ router.post("/",Common.ensureAuthenticated,function(req,res,next){
    var pName=req.body.pollName;
    var pQ=req.body.pollQuestion;
    var pItems=[];
-  console.log(req.body);
-  console.log(req.body); 
+  console.log(req.body.pollItems[0][optionName]);
 
   for(var i=0;i<req.body.pollItemsLength;i++){
- /* var obj ={
-    optionName:req.body.pollItems[i][optionName],
-    pollItems:req.body.pollItems[i][optionVal],
-    optionCount:req.body.pollItems[i][optionCount]
-  }
-    obj.optionName=req.body.pollItems[i][optionName]
-    obj.optionVal=req.body.pollItems[i][optionVal]
-    obj.optionCount=req.body.pollItems[i][optionCount]*/
+
     console.log(i);
-    pItems.push();
+
 
   };
    var pA=req.body.A;
