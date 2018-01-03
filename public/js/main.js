@@ -65,12 +65,15 @@ $(function(){
       }
       x.push(obj);
     });
+    
     var data={
       pollName:$("#pollName").val(),
       pollQuestion:$("#pollQuestion").val(),
       pollItemsLength:x.length,
       pollItems:x
    };
+    
+    console.log(data);
     $.ajax({
             type: 'post',
             url: "/cpoll",

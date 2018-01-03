@@ -6,10 +6,14 @@ var Poll = require('../model/poll');
 var Common = require('../common/common');
 
 router.post("/",Common.ensureAuthenticated,function(req,res,next){  
-  console.log(1); 
+  console.log(1);
+  console.log(req.body.pollName);
+  console.log(req.body.pollQuestion);
+   console.log(req.pollItems[1].optionCount);
    var pName=req.body.pollName;
    var pQ=req.body.pollQuestion;
-   var pItems=[]; 
+   var pItems=[];
+  console.log(pItems);
   for(var i=0;i<req.body.pollItemsLength;i++){
   var obj={
         optionName:req.body.pollItems[i].optionName,
@@ -19,7 +23,6 @@ router.post("/",Common.ensureAuthenticated,function(req,res,next){
   pItems.push(obj);
     console.log(obj);
   }
-  console.log(pItems);
 
    var pA=req.body.A;
    var pB=req.body.B;
