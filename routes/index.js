@@ -122,6 +122,7 @@ router.get('/logout', function (req, res) {
 router.post('/vote',function(req,res){
   
   Poll.updatePoll(req.body.pollName,req.body.vote,function(err){
+    // mongosedaki en alttaki objeyi update etme nasıl oluyor bakmak lazım.
     if(err) throw err;
   });
 });
