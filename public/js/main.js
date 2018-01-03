@@ -94,10 +94,8 @@ $(function(){
             dataType: 'json',
             data:data,
             success:function(result){
-            }
-        });
-    
-  var ctx = $("#pollChart");
+              console.log(result);
+                var ctx = $("#pollChart");
   
   var pollChartjs= new Chart(ctx, {
     type: 'bar',
@@ -135,7 +133,12 @@ $(function(){
         }
     }
 });
-    $("#pollResult").modal("show");
+
+  $("#pollResult").modal("show");
+            }
+        });
+    
+
   
   });
   

@@ -128,11 +128,11 @@ router.post('/vote',function(req,res){
 
 router.post('/getPollResult',function(req,res){
 console.log(req.body.pollName);
-User.getPollByPollname(req.body.pollName,function(err,asd){
+Poll.getPollByPollname(req.body.pollName,function(err,asd){
   if(err)
     throw err;
   else
-    console.log(asd);
+    res.Json(asd);
 });
 
 });
