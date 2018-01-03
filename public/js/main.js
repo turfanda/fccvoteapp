@@ -84,11 +84,12 @@ $(function(){
         });
   });
   
-  $(".showResult").on("click",function(){
+  $(document).on("click",".showResult",function(){
   
   var ctx = $("#pollChart");
     
-/*var pollChartjs= new Chart(ctx, {
+
+ var pollChartjs= new Chart(ctx, {
     type: 'bar',
     data: {
         labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
@@ -123,7 +124,8 @@ $(function(){
             }]
         }
     }
-});*/
+});
+    $("#pollResult").modal("show");
   
   });
   
