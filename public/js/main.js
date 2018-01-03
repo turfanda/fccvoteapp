@@ -85,11 +85,21 @@ $(function(){
   });
   
   $(document).on("click",".showResult",function(){
-  
-  var ctx = $("#pollChart");
+    var data ={
+    "pollName":$(this).parent().attr("id")
+    }
+    $.ajax({
+            type: 'post',
+            url: "/getPollResult",
+            dataType: 'json',
+            data:data,
+            success:function(result){
+            }
+        });
     
-
- var pollChartjs= new Chart(ctx, {
+  var ctx = $("#pollChart");
+  
+  var pollChartjs= new Chart(ctx, {
     type: 'bar',
     data: {
         labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],

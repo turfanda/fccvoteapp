@@ -26,7 +26,7 @@ module.exports.createPoll = function(newPoll,callback){
 }
 
 module.exports.getPollByPollname = function(pollName, callback){
-	var query = {pollName: pollName};
+  var query = {pollName: pollName};
 	pollData.findOne(query, callback);
 }
 
