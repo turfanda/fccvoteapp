@@ -27,7 +27,7 @@ function getAllPollonLoad(){
         });
 }
 
-$.getScrip(function(){
+$(function(){
   getAllPollonLoad();
   
   $("#addOption").on("click",function(event ){
@@ -87,7 +87,8 @@ $.getScrip(function(){
   $(".showResult").on("click",function(){
   
   var ctx = $("#pollChart");
-  var pollChartjs= new Chart(ctx, {
+    
+/*var pollChartjs= new Chart(ctx, {
     type: 'bar',
     data: {
         labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
@@ -122,7 +123,7 @@ $.getScrip(function(){
             }]
         }
     }
-});
+});*/
   
   });
   
