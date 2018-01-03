@@ -68,6 +68,7 @@ $(function(){
     var data={
       pollName:$("#pollName").val(),
       pollQuestion:$("#pollQuestion").val(),
+      pollItemsLength:x.length,
       pollItems:x
    };
     $.ajax({
@@ -80,7 +81,7 @@ $(function(){
             }
         });
     
-    console.log("fire")
+    console.log(data);
   });
   
   $(document).on('click', '.panel-heading span.clickable', function(e){
