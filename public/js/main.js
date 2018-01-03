@@ -32,11 +32,6 @@ $(function(){
   
   $("#addOption").on("click",function(event ){
     event.preventDefault();
-    if($("#options li").length>3){
-      alert("Max option limit is 4");
-      return;
-    }
-
     var y =$("<li>")
     var x = $("<input type='text'>").attr("id",String.fromCharCode(char+1)).attr("name",String.fromCharCode(char+1))
     char=char+1;
