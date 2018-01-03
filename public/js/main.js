@@ -65,15 +65,13 @@ $(function(){
       }
       x.push(obj);
     });
-    
+    console.log(JSON.stringify(x));
     var data={
       pollName:$("#pollName").val(),
       pollQuestion:$("#pollQuestion").val(),
       pollItemsLength:x.length,
-      pollItems:x
+      pollItems:JSON.stringify(x)
    };
-    
-    console.log(data);
     $.ajax({
             type: 'post',
             url: "/cpoll",
@@ -83,8 +81,7 @@ $(function(){
             alert("vote taken");
             }
         });
-    
-    console.log(data);
+
   });
   
   $(document).on('click', '.panel-heading span.clickable', function(e){
