@@ -6,7 +6,8 @@ var Poll = require('../model/poll');
 var Common = require('../common/common');
 
 router.post("/",Common.ensureAuthenticated,function(req,res,next){  
-  console.log(req.body); 
+  console.log(JSON.parse(req.body.pollItems));
+  //önemli nota arrayi göndermenin net yolunu bulamadım strignfy edip strign olara yolluyorum geri burada parse ediyorum amele gibi.Gönderirken ne yapacaz  ??
   var pName=req.body.pollName;
    var pQ=req.body.pollQuestion;
    var OpCount=req.body.optionCount;
