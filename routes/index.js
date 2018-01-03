@@ -121,7 +121,7 @@ router.get('/logout', function (req, res) {
 
 router.post('/vote',function(req,res){
   
-  Poll.updatePoll(req.body.pollName,req.body.vote+'ct',function(err){
+  Poll.updatePoll(req.body.pollName,req.body.vote,function(err){
     if(err) throw err;
   });
 });
