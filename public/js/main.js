@@ -6,12 +6,11 @@ function getAllPollonLoad(){
             url: "/getAllPoll",
             success:function(data){
               polls=data
-              console.log(polls.);
               var groupPanel = $("<div>").addClass("panel-group");
               $.each(polls,function(index,item){
                 var y=$("<div>")
                 for(var i=0;i<item.pollItems.length;i++){
-                var q =$("<div>").addClass("radio").append($("<input type='radio' name='options'>").val(item.pollItems[i].optionName)).append($("<span>").text());
+                var q =$("<div>").addClass("radio").append($("<input type='radio' name='options'>").val(item.pollItems[i].optionName)).append($("<span>").text(item.pollItems[i].optionVal));
                 y.append(q);
                 }
                 var qq=$("<button>").addClass("btn btn-primary vote").text("Vote");
