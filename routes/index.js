@@ -127,12 +127,15 @@ router.post('/vote',function(req,res){
 });
 
 router.post('/getPollResult',function(req,res){
-console.log(req.body.pollName);
+
 Poll.getPollByPollname(req.body.pollName,function(err,asd){
   if(err)
     throw err;
   else
-    res.Json(asd);
+  {
+    console.log(asd);
+    res.json(asd);
+  }
 });
 
 });
