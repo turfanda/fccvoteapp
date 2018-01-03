@@ -6,15 +6,9 @@ var Poll = require('../model/poll');
 var Common = require('../common/common');
 
 router.post("/",Common.ensureAuthenticated,function(req,res,next){  
-  console.log(JSON.parse(req.body.pollItems));
-  //önemli nota arrayi göndermenin net yolunu bulamadım strignfy edip strign olara yolluyorum geri burada parse ediyorum amele gibi.Gönderirken ne yapacaz  ??
   var pName=req.body.pollName;
-   var pQ=req.body.pollQuestion;
-   var OpCount=req.body.optionCount;
-   var pA=req.body.A;
-   var pB=req.body.B;
-   var pC=req.body.C;
-   var pD=req.body.D ;   
+  var pQ=req.body.pollQuestion;
+  var pItems=JSON.parse(req.body.pollItems);  
   Poll.getPollByPollname(pName, function (err, asd) {
         if (err) throw err;
         if (asd) {
@@ -23,8 +17,6 @@ router.post("/",Common.ensureAuthenticated,function(req,res,next){
         else{
           req.checkBody('pollName', 'Poll Name is required').notEmpty();
           req.checkBody('pollQuestion', 'Poll Question is required').notEmpty();
-          req.checkBody('A', 'At least enter two option').notEmpty();
-          req.checkBody('B', 'At least enter two option').notEmpty();
           var hatalar = req.validationErrors();
           if (hatalar) {
             res.render('dashboard', { hatalar: hatalar });
@@ -34,15 +26,7 @@ router.post("/",Common.ensureAuthenticated,function(req,res,next){
               userId: req.user.id,
               pollName: pName,
               pollQuestion: pQ,
-              optionCount:OpCount,
-              A: pA,
-              B: pB,
-              C: pC,
-              D: pD,
-              Act: 0,
-              Bct: 0,
-              Cct: 0,
-              Dct: 0,
+              pollItems:pItems,
             });
             Poll.createPoll(newPoll,function(err,poll){
               if(err) throw err;

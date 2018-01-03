@@ -69,7 +69,6 @@ $(function(){
     var data={
       pollName:$("#pollName").val(),
       pollQuestion:$("#pollQuestion").val(),
-      pollItemsLength:x.length,
       pollItems:JSON.stringify(x)
    };
     $.ajax({
