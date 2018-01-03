@@ -27,7 +27,7 @@ function getAllPollonLoad(){
         });
 }
 
-$(function(){
+$.getScrip(function(){
   getAllPollonLoad();
   
   $("#addOption").on("click",function(event ){
