@@ -7,7 +7,7 @@ var pollDataSchema = new Schema({
   pollName: {type: String,index:true},
 	pollQuestion: {type: String},
   optionCount:{type: Number},
-  pollItems:[{optionName:String,optionVal:String,optionCount:Number}]
+  pollItems:[{"optionName":String,"optionVal":String,"optionCount":Number}]
 });
 
 var pollData = mongoose.model("pollData",pollDataSchema);
