@@ -101,7 +101,7 @@ $(function(){
     $.ajax({
             type: 'post',
             url: "/cpoll",
-            contentType: 'application/json',
+            contentType: "application/json",
             dataType: 'json',
             data:data,
             success:function(){
