@@ -138,7 +138,12 @@ router.post('/vote',function(req,res){
   });
 });
 
-
+router.post('/deletePoll',function(req,res){
+  
+  Poll.deletePollByPollName(req.body.pollName,function(err){
+    if(err) throw err;
+  });
+});
 
 router.post('/getPollResult',function(req,res){
 
