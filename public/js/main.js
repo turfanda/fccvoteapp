@@ -157,7 +157,11 @@ $(function(){
         dataType: 'json',
         data: data,
         success: function(result) {
-          $.each  
+          var data=[];
+          var label=[];
+          $.each(result.pollItems,function(index,item){
+          data.push
+          });  
           
             var ctx = $("#pollChart");
             var pollChartjs = new Chart(ctx, {
