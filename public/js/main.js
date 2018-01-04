@@ -163,7 +163,8 @@ $(function(){
             data.push(item.optionCount);
             label.push(item.optionName);
             $("#optioninresult").append($("<li>").text(item.optionVal).css("text-align","left"));
-          });  
+          });
+          console.log()
             var ctx = $("#pollChart");
             var pollChartjs = new Chart(ctx, {
                 type: 'pie',
@@ -173,7 +174,7 @@ $(function(){
                     }],
 
 
-                    labels: 
+                    labels: label
                 },
             });
 
