@@ -96,7 +96,7 @@ $(function(){
     var data={
       pollName:$("#pollName").val(),
       pollQuestion:$("#pollQuestion").val(),
-      pollItems:JSON.
+      pollItems:JSON.stringify(x)
    };
     $.ajax({
             type: 'post',
