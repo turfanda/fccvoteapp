@@ -27,7 +27,7 @@ function getAllUserPollonLoad(){
         });
 }
 
-function getAllUserPollonLoad(){
+function getAllPollonLoad(){
   $.ajax({
             type: 'GET',
             url: "/getAllPoll",
@@ -54,7 +54,7 @@ function getAllUserPollonLoad(){
 
 $(function(){
   getAllUserPollonLoad();
-  getAllUserPollonLoad();
+  getAllPollonLoad();
   
   $("#addOption").on("click",function(event ){
     event.preventDefault();
