@@ -165,7 +165,7 @@ $(function(){
             label.push(item.optionName);
             backgroundColor.push("rgb("+Math.floor(Math.random() * 255)+", "+Math.floor(Math.random() * 255)+", "+Math.floor(Math.random() * 255));
           });
-          console.log()
+          console.log(backgroundColor);
             var ctx = $("#pollChart");
             var pollChartjs = new Chart(ctx, {
                 type: 'pie',
@@ -175,7 +175,7 @@ $(function(){
                     }],
                     labels: label
                 },
-                backgroundColor:[]
+                backgroundColor:backgroundColor
 
             });
 
