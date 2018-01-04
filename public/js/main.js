@@ -131,7 +131,8 @@ $(function(){
             url: "/vote",
             data:data,
             success:function(result){
-            if(resıu)
+            if(result==="OK")
+              alert("Vote Taken")
             }
         });
   });
