@@ -160,11 +160,10 @@ $(function(){
           var data=[];
           var label=[];
           var backgroundColor=[];
-          var borderColor=[]
           $.each(result.pollItems,function(index,item){
             data.push(item.optionCount);
             label.push(item.optionName);
-            backgroundColor.push("rgb("+Math.floor(Math.random() * 255));
+            backgroundColor.push("rgb("+Math.floor(Math.random() * 255)+", "+Math.floor(Math.random() * 255)+", "+Math.floor(Math.random() * 255));
           });
           console.log()
             var ctx = $("#pollChart");
