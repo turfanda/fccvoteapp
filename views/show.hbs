@@ -1,19 +1,19 @@
 <div class="container">
    <h4>
-
-</h4>
+     {{pollQuestion}}
+  </h4>
    <canvas id="pollChart" width="400" height="400"></canvas>
 </div>
 
 <script>
 $(function() {
           
-          var result="{{poll}}";
+          var pollItems="{{pollItems}}";
           var data=[];
           var label=[];
           var backgroundColor=[];
           var val=[]
-          $.each(result.pollItems,function(index,item){
+          $.each(repollItems,function(index,item){
             data.push(item.optionCount);
             label.push(item.optionName);
             val.push(item.optionVal);
