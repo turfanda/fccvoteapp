@@ -1,3 +1,15 @@
+<a class="twitter-share-button"
+  href="https://twitter.com/share"
+  data-size="large"
+  data-text="custom share text"
+  data-url="https://dev.twitter.com/web/tweet-button"
+  data-hashtags="example,demo"
+  data-via="twitterdev"
+  data-related="twitterapi,twitter">
+Tweet
+</a>
+
+
 var char=64;
 var polls;
 function getAllUserPollonLoad(){
@@ -15,7 +27,7 @@ function getAllUserPollonLoad(){
                 }
                 var qq=$("<button>").addClass("btn btn-primary vote").text("Vote");
                 var ww=$("<button>").addClass("btn btn-secondary showResult").text("Show Result");
-                var ss=$("<button>").addClass("btn btn-info shareResult").text("Share Result");
+                var ss=$("a").addClass("btn btn-info shareResult").text("Share Result");
                 var zz=$("<button>").addClass("btn btn-danger deletePoll").text("DeletePoll");
                 var x = $("<div>").addClass("panel panel-primary ")
                 .append($("<div>").addClass("panel-heading").text(item.pollName).append("<span class='pull-right clickable panel-collapsed'><i class='fa fa-arrow-up'></i></span>"))
