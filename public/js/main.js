@@ -96,12 +96,11 @@ $(function(){
     var data={
       pollName:$("#pollName").val(),
       pollQuestion:$("#pollQuestion").val(),
-      pollItems:x
+      pollItems:JSON.
    };
     $.ajax({
             type: 'post',
             url: "/cpoll",
-            contentType: "application/json",
             dataType: 'json',
             data:data,
             success:function(){
