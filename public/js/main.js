@@ -199,7 +199,7 @@ $(function(){
 });
   
   $(document).on("click",".shareResult",function(){
-$(this.)
+    $(this).attr("data-url","https://fcc-vote-app.glitch.me/"+$(this).parent().attr("id"));
   });
   
   
