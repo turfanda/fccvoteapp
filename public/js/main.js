@@ -1,3 +1,4 @@
+var char=64;
 var polls;
 function getAllUserPollonLoad(){
   $.ajax({
