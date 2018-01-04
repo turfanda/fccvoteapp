@@ -179,7 +179,6 @@ $(function(){
                     labels: label,
                  
                 },
-                options: {tooltips:val}
             });
 
             $("#pollResult").modal("show");
