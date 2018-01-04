@@ -136,6 +136,7 @@ router.post('/vote',function(req,res){
   
   Poll.updatePoll(req.body.pollName,req.body.vote,function(err){
     if(err) throw err;
+    res.sendStatus(200);
   });
 });
 
@@ -143,6 +144,8 @@ router.post('/deletePoll',Common.ensureAuthenticated,function(req,res){
   
   Poll.deletePollByPollName(req.body.pollName,function(err){
     if(err) throw err;
+    else
+      res.sendStatus(200);
   });
  
 });
