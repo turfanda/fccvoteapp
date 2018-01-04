@@ -138,6 +138,8 @@ router.post('/vote',function(req,res){
   });
 });
 
+
+
 router.post('/getPollResult',function(req,res){
 
 Poll.getPollByPollname(req.body.pollName,function(err,asd){

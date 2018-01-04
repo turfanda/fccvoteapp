@@ -135,6 +135,18 @@ $(function(){
         });
   });
   
+    $(document).on("click",".deletePoll",function(){
+    var data ={
+    "pollName":$(this).parent().attr("id"),
+    }
+      $.ajax({
+            type: 'post',
+            url: "/deletePoll",
+            dataType: 'json',
+            data:data
+        });
+  });
+  
   $(document).on("click",".showResult",function(){
     var data ={
     "pollName":$(this).parent().attr("id")
