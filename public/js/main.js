@@ -27,7 +27,7 @@ function getAllUserPollonLoad(){
                 }
                 var qq=$("<button>").addClass("btn btn-primary vote").text("Vote");
                 var ww=$("<button>").addClass("btn btn-secondary showResult").text("Show Result");
-                var ss=$("a").addClass("btn btn-info shareResult").text("Share Result").attr({href:"https://twitter.com/share","data-size":"large","data-url":"https://fcc-vote-app.glitch.me/show"});
+                var ss=$("a").addClass("btn btn-info shareResult").text("Share Result").attr({href:"https://twitter.com/share"});
                 var zz=$("<button>").addClass("btn btn-danger deletePoll").text("DeletePoll");
                 var x = $("<div>").addClass("panel panel-primary ")
                 .append($("<div>").addClass("panel-heading").text(item.pollName).append("<span class='pull-right clickable panel-collapsed'><i class='fa fa-arrow-up'></i></span>"))
