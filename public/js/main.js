@@ -193,7 +193,7 @@ $(function(){
                       datasets: [{
                           label: '# of Votes',
                           data: [result.Act, result.Dct, result.Cct, result.Dct, ],
-                          backgroundColor: [
+                          backgroundColorxx: [
                               'rgba(255, 99, 132, 0.2)',
                               'rgba(54, 162, 235, 0.2)',
                               'rgba(255, 206, 86, 0.2)',
