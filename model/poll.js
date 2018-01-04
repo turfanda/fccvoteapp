@@ -23,6 +23,11 @@ module.exports.getPollByPollname = function(pollName, callback){
 	pollData.findOne(query, callback);
 }
 
+module.exports.getPollByUsern = function(userName, callback){
+  var query = {pollName: pollName};
+	pollData.findOne(query, callback);
+}
+
 module.exports.getPollById = function(id, callback){
 	pollData.findById(id, callback);
 }
