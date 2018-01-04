@@ -1,9 +1,9 @@
 var char=64;
 var polls;
-function getAllPollonLoad(){
+function getAllUserPollonLoad(){
   $.ajax({
             type: 'GET',
-            url: "/getAllPoll",
+            url: "/getAllUserPoll",
             success:function(data){
               polls=data
               var groupPanel = $("<div>").addClass("panel-group");
@@ -28,7 +28,7 @@ function getAllPollonLoad(){
 }
 
 $(function(){
-  getAllPollonLoad();
+  getAllUserPollonLoad();
   
   $("#addOption").on("click",function(event ){
     event.preventDefault();
