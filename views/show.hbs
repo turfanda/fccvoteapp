@@ -1,36 +1,11 @@
 <div class="container">
-   <h4>
+  <h5></h5> 
+  <h4>
      {{pollQuestion}}
   </h4>
-   <canvas id="pollChart" width="400" height="400"></canvas>
+  <ol type="A">
+  <
+  
+  
+  </ol>
 </div>
-
-<script>
-$(function() {
-          
-          var pollItems="{{pollItems}}";
-          var data=[];
-          var label=[];
-          var backgroundColor=[];
-          var val=[]
-          $.each(pollItems,function(index,item){
-            data.push(item.optionCount);
-            label.push(item.optionName);
-            val.push(item.optionVal);
-            backgroundColor.push("rgba("+Math.floor(Math.random() * 255)+", "+Math.floor(Math.random() * 255)+", "+Math.floor(Math.random() * 255)+", 1)");
-          });
-          console.log(backgroundColor);
-            var ctx = $("#pollChart");
-            var pollChartjs = new Chart(ctx, {
-                type: 'pie',
-                data: {
-                    datasets: [{
-                        data: data,
-                        backgroundColor:backgroundColor
-                    }],
-                    labels: label,
-                 
-                },
-            });
-        });
-</script>
