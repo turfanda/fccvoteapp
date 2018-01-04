@@ -147,7 +147,7 @@ $(function(){
         });
   });
   
-    $(document).on("click",".deletePoll",function(){
+  $(document).on("click",".deletePoll",function(){
     var data ={
     "pollName":$(this).parent().attr("id"),
     }
@@ -197,6 +197,8 @@ $(function(){
         }
     });
 });
+  
+  
   
   
 })
