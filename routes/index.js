@@ -164,7 +164,7 @@ router.get("/showPoll/:name", function(req, res) {
         if (err)
             throw err;
         else {
-            res.render("show",{pollName:asd.pollName,pollQuestion:asd.pollQuestion,pollItems:asd.pollItems});
+            res.render("show",{pollName:asd.pollName,pollQuestion:asd.pollQuestion,pollItems:JSON.stringify(asd.pollItems)});
         }
     });
 });
