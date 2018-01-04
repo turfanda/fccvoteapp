@@ -1,16 +1,3 @@
-<a class="twitter-share-button"
-  href="https://twitter.com/share"
-  data-size="large"
-  data-text="custom share text"
-  data-url="https://dev.twitter.com/web/tweet-button"
-  data-hashtags="example,demo"
-  data-via="twitterdev"
-  data-related="twitterapi,twitter">
-Tweet
-</a>
-
-
-var char=64;
 var polls;
 function getAllUserPollonLoad(){
   $.ajax({
