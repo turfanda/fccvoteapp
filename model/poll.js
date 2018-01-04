@@ -33,7 +33,8 @@ module.exports.getPollById = function(id, callback){
 }
 
 module.exports.deletePollByPollName = function(pollName, callback){
-	pollData.findById(id, callback);
+   var query = {pollName: pollName};
+	pollData.remove(query, callback);
 }
 
 module.exports.getAllPoll = function(callback){
