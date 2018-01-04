@@ -162,23 +162,18 @@ $(function(){
           $.each(result.pollItems,function(index,item){
             data.push(item.optionCount);
             label.push(item.optionName);
-            $("#optioninresult").append($("<li>").text(item.optionVal).addClass("text-align","left"));
+            $("#optioninresult").append($("<li>").text(item.optionVal).css("text-align","left"));
           });  
-          
             var ctx = $("#pollChart");
             var pollChartjs = new Chart(ctx, {
                 type: 'pie',
                 data: {
                     datasets: [{
-                        data: [10, 20, 30]
+                        data: data
                     }],
 
 
-                    labels: [
-                        'Red',
-                        'Yellow',
-                        'Blue'
-                    ]
+                    labels: 
                 },
             });
 
