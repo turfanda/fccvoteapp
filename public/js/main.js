@@ -132,7 +132,9 @@ $(function(){
             data:data,
             success:function(result){
             if(result==="OK")
-              alert("Vote Taken")
+              alert("Vote Taken");
+            else
+              alert("There was a Problem");
             }
         });
   });
