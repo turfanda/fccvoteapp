@@ -129,9 +129,10 @@ $(function(){
       $.ajax({
             type: 'post',
             url: "/vote",
-          //  dataType: 'json',
             data:data,
-            success:function(result){console.log(result);}
+            success:function(result){
+            if(resıu)
+            }
         });
   });
   
