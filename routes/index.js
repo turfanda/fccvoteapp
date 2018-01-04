@@ -69,7 +69,7 @@ router.get("/login", function (req, res, nex) {
     res.render("login");
 });
 
-router.get("/getAllPoll",Common.ensureAuthenticated,function(req,res,next){
+router.get("/getAllPoll",function(req,res,next){
  Poll.getAllPoll(function(err,asd){
    if (err) throw err;
    else{
