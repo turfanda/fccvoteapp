@@ -1,3 +1,6 @@
+
+//$('.twitter-share-button').attr('href', 'https://twitter.com/share').attr('data-text', quoteText);
+
 var char=64;
 var polls;
 function getAllUserPollonLoad(){
@@ -185,10 +188,5 @@ $(function(){
         }
     });
 });
-  
-  $(document).on("click",".shareResult",function(){
-    $(this).attr("data-url","https://fcc-vote-app.glitch.me/"+$(this).parent().attr("id"));
-  });
-  
   
 })
