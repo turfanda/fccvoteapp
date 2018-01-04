@@ -164,7 +164,7 @@ $(function(){
           $.each(result.pollItems,function(index,item){
             data.push(item.optionCount);
             label.push(item.optionName);
-            backgroundColor.push(item.val);
+            backgroundColor.push("rgb("+Math.floor(Math.random() * 255));
           });
           console.log()
             var ctx = $("#pollChart");
@@ -176,9 +176,8 @@ $(function(){
                     }],
                     labels: label
                 },
-                backgroundColor:[],
-                borderColor:[],
-                borderWidth:1
+                backgroundColor:[]
+
             });
 
             $("#pollResult").modal("show");
