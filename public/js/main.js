@@ -148,51 +148,37 @@ $(function(){
   });
   
   $(document).on("click", ".showResult", function() {
-      var data = {
-          "pollName": $(this).parent().attr("id")
-      }
-      $.ajax({
-          type: 'post',
-          url: "/getPollResult",
-          dataType: 'json',
-          data: data,
-          success: function(result) {
-              console.log(result);
-              var ctx = $("#pollChart");
+    var data = {
+        "pollName": $(this).parent().attr("id")
+    }
+    $.ajax({
+        type: 'post',
+        url: "/getPollResult",
+        dataType: 'json',
+        data: data,
+        success: function(result) {
+            console.log(result);
+            var ctx = $("#pollChart");
+            var pollChartjs = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                        data: [10, 20, 30]
+                    }],
 
-              var pollChartjs = new Chart(ctx, {
-                  type: 'pie',
-                data : {
-    datasets: [{
-        data: [10, 20, 30]
-    }],
 
-    
-    labels: [
-        'Red',
-        'Yellow',
-        'Blue'
-    ]
-},  
-                
-                
-                
-                  options: {
-                      scales: {
-                          yAxes: [{
-                              ticks: {
-                                  beginAtZero: true
-                              }
-                          }]
-                      }
-                  }
-              });
+                    labels: [
+                        'Red',
+                        'Yellow',
+                        'Blue'
+                    ]
+                },
+            });
 
-              $("#pollResult").modal("show");
-          }
-      });
-  });
-  
+            $("#pollResult").modal("show");
+        }
+    });
+});
   
   
 })
@@ -217,4 +203,4 @@ $(function(){
                           ],
                           borderWidth: 1
                       }]
-                  },
+                  },*/
