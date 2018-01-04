@@ -169,13 +169,10 @@ $(function(){
             var ctx = $("#pollChart");
             var pollChartjs = new Chart(ctx, {
                 type: 'pie',
-                labels:val,
                 data: {
                     datasets: [{
                         data: data
                     }],
-
-
                     labels: label
                 },
             });
