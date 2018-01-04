@@ -160,9 +160,9 @@ $(function(){
           var data=[];
           var label=[];
           $.each(result.pollItems,function(index,item){
-            data.push(item.optionVal);
+            data.push(item.optionCount);
             label.push(item.optionName);
-            $()
+            $("#optioninResult").append($("<li>").text(item.optionVal);
           });  
           
             var ctx = $("#pollChart");
