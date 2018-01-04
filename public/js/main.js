@@ -160,6 +160,7 @@ $(function(){
           var data=[];
           var label=[];
           var backgroundColor=[];
+          var val=[]
           $.each(result.pollItems,function(index,item){
             data.push(item.optionCount);
             label.push(item.optionName);
@@ -177,8 +178,8 @@ $(function(){
                     labels: label,
                  
                 },
-               
-
+                options: {
+                tooltips:
             });
 
             $("#pollResult").modal("show");
