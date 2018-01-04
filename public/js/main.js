@@ -16,14 +16,40 @@ function getAllUserPollonLoad(){
                 var qq=$("<button>").addClass("btn btn-primary vote").text("Vote");
                 var ww=$("<button>").addClass("btn btn-secondary showResult").text("Show Result");
                 var ss=$("<button>").addClass("btn btn-info shareResult").text("Share Result");
-                var =$("<button>").addClass("btn btn-info shareResult").text("Share Result");
+                var zz=$("<button>").addClass("btn btn-danger deletePoll").text("DeletePoll");
                 var x = $("<div>").addClass("panel panel-primary ")
                 .append($("<div>").addClass("panel-heading").text(item.pollName).append("<span class='pull-right clickable panel-collapsed'><i class='fa fa-arrow-up'></i></span>"))
                 .append($("<div>").addClass("panel-body").attr("id",item.pollName).text(item.pollQuestion).append(y).append(qq).append(ww).append(ss));
                 groupPanel.append(x);
               });
               $("#dashjumbotron").append(groupPanel);
-              
+            }
+        });
+}
+
+function getAllUserPollonLoad(){
+  $.ajax({
+            type: 'GET',
+            url: "/getAllPoll",
+            success:function(data){
+              polls=data
+              var groupPanel = $("<div>").addClass("panel-group");
+              $.each(polls,function(index,item){
+                var y=$("<div>")
+                for(var i=0;i<item.pollItems.length;i++){
+                var q =$("<div>").addClass("radio").append($("<input type='radio' name='options'>").val(item.pollItems[i].optionName)).append($("<span>").text(item.pollItems[i].optionVal));
+                y.append(q);
+                }
+                var qq=$("<button>").addClass("btn btn-primary vote").text("Vote");
+                var ww=$("<button>").addClass("btn btn-secondary showResult").text("Show Result");
+                var ss=$("<button>").addClass("btn btn-info shareResult").text("Share Result");
+                var zz=$("<button>").addClass("btn btn-danger deletePoll").text("DeletePoll");
+                var x = $("<div>").addClass("panel panel-primary ")
+                .append($("<div>").addClass("panel-heading").text(item.pollName).append("<span class='pull-right clickable panel-collapsed'><i class='fa fa-arrow-up'></i></span>"))
+                .append($("<div>").addClass("panel-body").attr("id",item.pollName).text(item.pollQuestion).append(y).append(qq).append(ww).append(ss));
+                groupPanel.append(x);
+              });
+              $("#dashjumbotron").append(groupPanel);
             }
         });
 }
