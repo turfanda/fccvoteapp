@@ -19,7 +19,7 @@ function getAllUserPollonLoad(){
                 var zz=$("<button>").addClass("btn btn-danger deletePoll").text("DeletePoll");
                 var x = $("<div>").addClass("panel panel-primary ")
                 .append($("<div>").addClass("panel-heading").text(item.pollName).append("<span class='pull-right clickable panel-collapsed'><i class='fa fa-arrow-up'></i></span>"))
-                .append($("<div>").addClass("panel-body").attr("id",item.pollName).text(item.pollQuestion).append(y).append(qq).append(ww).append(ss));
+                .append($("<div>").addClass("panel-body").attr("id",item.pollName).text(item.pollQuestion).append(y).append(qq).append(ww).append(ss).append(zz));
                 groupPanel.append(x);
               });
               $("#dashjumbotron").append(groupPanel);
@@ -42,19 +42,18 @@ function getAllUserPollonLoad(){
                 }
                 var qq=$("<button>").addClass("btn btn-primary vote").text("Vote");
                 var ww=$("<button>").addClass("btn btn-secondary showResult").text("Show Result");
-                var ss=$("<button>").addClass("btn btn-info shareResult").text("Share Result");
-                var zz=$("<button>").addClass("btn btn-danger deletePoll").text("DeletePoll");
                 var x = $("<div>").addClass("panel panel-primary ")
                 .append($("<div>").addClass("panel-heading").text(item.pollName).append("<span class='pull-right clickable panel-collapsed'><i class='fa fa-arrow-up'></i></span>"))
-                .append($("<div>").addClass("panel-body").attr("id",item.pollName).text(item.pollQuestion).append(y).append(qq).append(ww).append(ss));
+                .append($("<div>").addClass("panel-body").attr("id",item.pollName).text(item.pollQuestion).append(y).append(qq).append(ww));
                 groupPanel.append(x);
               });
-              $("#dashjumbotron").append(groupPanel);
+              $("#indexjumbotron").append(groupPanel);
             }
         });
 }
 
 $(function(){
+  getAllUserPollonLoad();
   getAllUserPollonLoad();
   
   $("#addOption").on("click",function(event ){
