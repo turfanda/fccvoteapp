@@ -86,7 +86,6 @@ router.get("/getAllUserPoll",Common.ensureAuthenticated,function(req,res,next){
    if (err) throw err;
    else{
      res.json(asd);
-     res.redirect('/dashboard');
    }
         
  });
@@ -144,8 +143,6 @@ router.post('/deletePoll',Common.ensureAuthenticated,function(req,res){
   
   Poll.deletePollByPollName(req.body.pollName,function(err){
     if(err) throw err;
-    else
-       res.redirect('/dashboard');
   });
  
 });
