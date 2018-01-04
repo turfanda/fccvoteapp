@@ -143,6 +143,7 @@ router.post('/deletePoll',function(req,res){
   Poll.deletePollByPollName(req.body.pollName,function(err){
     if(err) throw err;
   });
+  res.redirect('/dashboard');
 });
 
 router.post('/getPollResult',function(req,res){
