@@ -147,17 +147,26 @@ router.post('/deletePoll',Common.ensureAuthenticated,function(req,res){
  
 });
 
-router.post('/getPollResult',function(req,res){
+router.post('/getPollResult', function(req, res) {
 
-Poll.getPollByPollname(req.body.pollName,function(err,asd){
-  if(err)
-    throw err;
-  else
-  {
-    console.log(asd);
-    res.json(asd);
-  }
+    Poll.getPollByPollname(req.body.pollName, function(err, asd) {
+        if (err)
+            throw err;
+        else {
+            res.json(asd);
+        }
+    });
 });
-  });
+
+router.get("/showPoll/:name", function(req, res) {
+    var pollName = req.params.name;
+    Poll.getPollByPollname(req.body.pollName, function(err, asd) {
+        if (err)
+            throw err;
+        else {
+            res.json(asd);
+        }
+    });
+});
 
 module.exports = router;
