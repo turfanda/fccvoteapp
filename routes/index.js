@@ -80,6 +80,18 @@ router.get("/getAllPoll",Common.ensureAuthenticated,function(req,res,next){
   
 });
 
+router.get("/getAllUserPoll",Common.ensureAuthenticated,function(req,res,next){
+  
+ Poll.getPollByUserId(req.user.id,function(err,asd){
+   if (err) throw err;
+   else{
+     res.json(asd);
+   }
+        
+ });
+  
+});
+
 passport.use(new LocalStrategy(function (username, password, done) {
     User.getUserByUsername(username, function (err, user) {
         if (err) throw err;
