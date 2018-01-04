@@ -159,11 +159,11 @@ $(function(){
         success: function(result) {
           var data=[];
           var label=[];
-          var backgroundColoraa=[];
+          var backgroundColor=[];
           $.each(result.pollItems,function(index,item){
             data.push(item.optionCount);
             label.push(item.optionName);
-            backgroundColoraa.push("rgba("+Math.floor(Math.random() * 255)+", "+Math.floor(Math.random() * 255)+", "+Math.floor(Math.random() * 255)+", 0.2)");
+            backgroundColor.push("rgba("+Math.floor(Math.random() * 255)+", "+Math.floor(Math.random() * 255)+", "+Math.floor(Math.random() * 255)+", 0.2)");
           });
           console.log(backgroundColor);
             var ctx = $("#pollChart");
@@ -173,9 +173,10 @@ $(function(){
                     datasets: [{
                         data: data
                     }],
-                    labels: label
+                    labels: label,
+                   backgroundColor:backgroundColor
                 },
-                backgroundColor:backgroundColor
+               
 
             });
 
