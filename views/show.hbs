@@ -1,19 +1,19 @@
 <div class="container">
-
-
-  <ol type="A">
-  {{#each pollItems}}
-    <li>{{optionVal}}  vote:<span>{{optionCount}}</span></li>
-   {{/each}}
-  </ol>
-</div>
-
-
-  <div class="container">
     <div class="panel panel-primary">
-      <div class="panel-heading">  <h3>
-  {{pollName}}
-  </h3> </div>
-      <div class="panel-body">Panel Content</div>
+        <div class="panel-heading">
+            <h3>
+                {{pollName}}
+            </h3>
+            <h4>
+                {{pollQuestion}}
+            </h4>
+        </div>
+        <div class="panel-body">
+            <ol type="A">
+                {{#each pollItems}}
+                <li>{{optionVal}} vote:<span>{{optionCount}}</span></li>
+                {{/each}}
+            </ol>
+        </div>
     </div>
-    </div>
+</div>
