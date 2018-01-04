@@ -163,7 +163,7 @@ $(function(){
           $.each(result.pollItems,function(index,item){
             data.push(item.optionCount);
             label.push(item.optionName);
-            backgroundColor.push("rgba("+Math.floor(Math.random() * 255)+", "+Math.floor(Math.random() * 255)+", "+Math.floor(Math.random() * 255)+", 0.2)");
+            backgroundColor.push("rgba("+Math.floor(Math.random() * 255)+", "+Math.floor(Math.random() * 255)+", "+Math.floor(Math.random() * 255)+", 1)");
           });
           console.log(backgroundColor);
             var ctx = $("#pollChart");
@@ -171,10 +171,11 @@ $(function(){
                 type: 'pie',
                 data: {
                     datasets: [{
-                        data: data
+                        data: data,
+                        backgroundColor:backgroundColor
                     }],
                     labels: label,
-                   backgroundColor:backgroundColor
+                 
                 },
                
 
