@@ -91,7 +91,6 @@ $(function(){
       }
       x.push(obj);
     });
-    console.log(JSON.stringify(x));
     var data={
       pollName:$("#pollName").val(),
       pollQuestion:$("#pollQuestion").val(),
@@ -102,8 +101,8 @@ $(function(){
             url: "/cpoll",
             dataType: 'json',
             data:JSON.stringify(data),
-            success:function(){
-            alert("vote taken");
+            success:function(result){
+              if(result==200)
             }
         });
 
