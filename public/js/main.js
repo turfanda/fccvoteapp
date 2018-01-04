@@ -100,7 +100,7 @@ $(function(){
             type: 'post',
             url: "/cpoll",
             dataType: 'json',
-            data:JSON.stringify(data),
+            data:data,
             success:function(){
             
             }
