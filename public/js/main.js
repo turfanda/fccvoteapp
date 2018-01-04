@@ -17,10 +17,9 @@ function getAllUserPollonLoad(){
                 var ww=$("<button>").addClass("btn btn-secondary showResult").text("Show Result");
                 var ss=$("<button>").addClass("btn btn-info shareResult").text("Share Result");
                 var zz=$("<button>").addClass("btn btn-danger deletePoll").text("DeletePoll");
-                var tweet=$("<button>").addClass("btn btn-twitter").text("Share")
                 var x = $("<div>").addClass("panel panel-primary ")
                 .append($("<div>").addClass("panel-heading").text(item.pollName).append("<span class='pull-right clickable panel-collapsed'><i class='fa fa-arrow-up'></i></span>"))
-                .append($("<div>").addClass("panel-body").attr("id",item.pollName).text(item.pollQuestion).append(y).append(qq).append(ww).append(ss).append(zz).append(tweet));
+                .append($("<div>").addClass("panel-body").attr("id",item.pollName).text(item.pollQuestion).append(y).append(qq).append(ww).append(ss).append(zz));
                 groupPanel.append(x);
               });
               $("#dashjumbotron").append(groupPanel);
