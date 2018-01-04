@@ -164,6 +164,7 @@ $(function(){
           $.each(result.pollItems,function(index,item){
             data.push(item.optionCount);
             label.push(item.optionName);
+            val.push(item.optionVal);
             backgroundColor.push("rgba("+Math.floor(Math.random() * 255)+", "+Math.floor(Math.random() * 255)+", "+Math.floor(Math.random() * 255)+", 1)");
           });
           console.log(backgroundColor);
@@ -178,8 +179,7 @@ $(function(){
                     labels: label,
                  
                 },
-                options: {
-                tooltips:
+                options: {tooltips:val}
             });
 
             $("#pollResult").modal("show");
