@@ -129,7 +129,7 @@ $(function(){
       $.ajax({
             type: 'post',
             url: "/vote",
-            dataType: 'json',
+          //  dataType: 'json',
             data:data,
             success:function(result){console.log(result);}
         });
