@@ -160,10 +160,12 @@ router.post('/getPollResult', function(req, res) {
 
 router.get("/showPoll/:name", function(req, res) {
     var pollName = req.params.name;
+  console.log(pollName)
     Poll.getPollByPollname(req.body.pollName, function(err, asd) {
         if (err)
             throw err;
         else {
+          console.
             res.render("show",{poll:asd});
         }
     });
