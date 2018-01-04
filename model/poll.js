@@ -32,7 +32,7 @@ module.exports.getPollById = function(id, callback){
 	pollData.findById(id, callback);
 }
 
-module.exports.deletePollById = function(id, callback){
+module.exports.deletePollByPollName = function(pollName, callback){
 	pollData.findById(id, callback);
 }
 
