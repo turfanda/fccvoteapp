@@ -165,7 +165,7 @@ router.get("/showPoll/:name", function(req, res) {
         if (err)
             throw err;
         else {
-          console.
+          console.log(asd);
             res.render("show",{poll:asd});
         }
     });
