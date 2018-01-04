@@ -101,8 +101,8 @@ $(function(){
             url: "/cpoll",
             dataType: 'json',
             data:JSON.stringify(data),
-            success:function(result){
-              if(result==200)
+            success:function(){
+            
             }
         });
 
@@ -130,7 +130,8 @@ $(function(){
             type: 'post',
             url: "/vote",
             dataType: 'json',
-            data:data
+            data:data,
+            success:function(result){console.log(result);}
         });
   });
   
