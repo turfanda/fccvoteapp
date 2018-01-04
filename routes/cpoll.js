@@ -7,6 +7,7 @@ var Common = require('../common/common');
 
 router.post("/",Common.ensureAuthenticated,function(req,res,next){  
   var pName=req.body.pollName;
+  console.log(req.body);
   var pQ=req.body.pollQuestion;
   var pItems=JSON.parse(req.body.pollItems);  
   Poll.getPollByPollname(pName, function (err, asd) {
