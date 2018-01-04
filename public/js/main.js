@@ -162,7 +162,7 @@ $(function(){
           $.each(result.pollItems,function(index,item){
             data.push(item.optionCount);
             label.push(item.optionName);
-            $("#optioninresult").append($("<li>").text(item.optionVal));
+            $("#optioninresult").append($("<li>").text(item.optionVal).addClass("text-align","left"));
           });  
           
             var ctx = $("#pollChart");
