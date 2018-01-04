@@ -1,10 +1,6 @@
 <div class="container">
-  <h5>
-  {{pollName}}
-  </h5> 
-  <h4>
-     {{pollQuestion}}
-  </h4>
+
+
   <ol type="A">
   {{#each pollItems}}
     <li>{{optionVal}}  vote:<span>{{optionCount}}</span></li>
@@ -13,7 +9,11 @@
 </div>
 
 
+  <div class="container">
     <div class="panel panel-primary">
-      <div class="panel-heading">Panel with panel-primary class</div>
+      <div class="panel-heading">  <h3>
+  {{pollName}}
+  </h3> </div>
       <div class="panel-body">Panel Content</div>
+    </div>
     </div>
