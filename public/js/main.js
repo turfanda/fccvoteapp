@@ -159,15 +159,17 @@ $(function(){
         success: function(result) {
           var data=[];
           var label=[];
+          var val=[];
           $.each(result.pollItems,function(index,item){
             data.push(item.optionCount);
             label.push(item.optionName);
-            $("#optioninresult").append($("<li>").text(item.optionVal).css("text-align","left"));
+            val.push(item.val);
           });
           console.log()
             var ctx = $("#pollChart");
             var pollChartjs = new Chart(ctx, {
                 type: 'pie',
+                labels:val,
                 data: {
                     datasets: [{
                         data: data
