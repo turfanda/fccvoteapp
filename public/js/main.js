@@ -161,7 +161,7 @@ $(function(){
               var ctx = $("#pollChart");
 
               var pollChartjs = new Chart(ctx, {
-                  type: 'bar',
+                  type: 'pie',
                   data: {
                       labels: [result.A, result.B, result.C, result.D],
                       datasets: [{
