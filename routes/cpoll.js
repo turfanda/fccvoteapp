@@ -30,11 +30,13 @@ router.post("/",Common.ensureAuthenticated,function(req,res,next){
             });
             Poll.createPoll(newPoll,function(err,poll){
               if(err) throw err;
+              else{
+            req.flash('basarili_mesaj', 'Poll generated you can vote now');
+            res.redirect('/dashboard');
+              }
 
             });
-            req.flash('basarili_mesaj', 'Poll generated you can vote now');
-            console.log(1);
-            res.redirect('/dashboard');
+
           }
         }
     });
