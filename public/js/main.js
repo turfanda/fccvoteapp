@@ -198,7 +198,9 @@ $(function(){
     });
 });
   
-  
+  $(document).on("click",".shareResult",function(){
+$(this.)
+  });
   
   
 })
