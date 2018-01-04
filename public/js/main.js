@@ -146,8 +146,13 @@ $(function(){
       $.ajax({
             type: 'post',
             url: "/deletePoll",
-            dataType: 'json',
-            data:data
+            data:data,
+            success:function(result){
+            if(result==="OK")
+              alert("Vote Taken");
+            else
+              alert("There was a Problem");
+            }
         });
   });
   
