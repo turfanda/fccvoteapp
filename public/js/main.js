@@ -157,7 +157,8 @@ $(function(){
         dataType: 'json',
         data: data,
         success: function(result) {
-            console.log(result);
+          $.each  
+          
             var ctx = $("#pollChart");
             var pollChartjs = new Chart(ctx, {
                 type: 'pie',
