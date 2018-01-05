@@ -12,7 +12,7 @@ router.post("/",Common.ensureAuthenticated,function(req,res,next){
   Poll.getPollByPollname(pName, function (err, asd) {
     if (err) throw err;
         if (asd) {
-            res.render('dashboard', { hata_mesaj: "Poll name already in use" });
+            res.json({success:"Poll name already in use", status : 501});
         }
         else{
           req.checkBody('pollName', 'Poll Name is required').notEmpty();
