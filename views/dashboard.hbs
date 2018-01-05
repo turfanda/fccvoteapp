@@ -1,16 +1,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <section class="currentPolls">
         <div class="container">
-           {{#if hatalar}}
-             <div class="alert alert-danger">
-               <p>Please Correct Below Errors</p>
-               <ul>
-              {{#each hatalar}}
-                 <li>{{msg}}</li>
-              {{/each}}
-               </ul>
-               </div>
-          {{/if}}
+          <div class="alert alert-danger" style="display:none"></div>
+          <div class="alert alert-success" style="display:none"></div>
           <form>
             <p class="swhite">Please enter poll Name</p>
             <input type="text" id="pollName"name="pollName"><br>

@@ -103,11 +103,19 @@ $(function(){
             data:data,
             success:function(result){
               if(result.status===201){
-              
+                $("#msg").remove();
+                $(".alert-info").append($("<p>").attr("id","msg").text(result.message));
+                location.reload();
               }
               else if(result.status===501){
+                $("#msg").remove();
+                $(".alert-dan").append($("<p>").attr("id","msg").text(result.message));
+                 location.reload();
               }
               else if(result.status===500){
+                $("#msg").remove();
+                 $(".alert-info").append($("<p>").attr("id","msg").text(result.message));
+                 location.reload();
               }
               else
                 
