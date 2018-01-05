@@ -16,7 +16,7 @@ router.get("/", function (req, res, nex) {
 });
 
 router.get("/dashboard", Common.ensureAuthenticated, function (req, res, nex) {
-  console.log("ds")  
+  console.log("dshb")  
   res.render("dashboard");
 });
 
