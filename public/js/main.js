@@ -102,26 +102,16 @@ $(function(){
             dataType: 'json',
             data:data,
             success:function(result){
-              console.log(result);
               if(result.status===201){
-                $(".msg").remove();
-                $(".alert-info").append($("<p>").addClass("msg").text(result.message));
-                console.log(result.staus);
-
+                alert(result.success);
               }
               if(result.status===501){
-                $(".msg").remove();
-                var y = $("<ul>").addClass("msg");
-                $.each(result.hatalar,function(index,item){
-                y.append($("<li>").text(item.msg));
-                });
-                $(".alert-danger").append($("<p>").addClass("msg").text(result.message)).append(y);
-
+                var x = $.each(result.jat)
+                
+                alert(result.success);
               }
               if(result.status===500){
-                $(".msg").remove();
-                 $(".alert-danger").append($("<p>").addClass("msg").text(result.message));
-
+                alert(result.success);
               }
         }
 
