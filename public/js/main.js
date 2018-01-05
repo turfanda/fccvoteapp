@@ -102,27 +102,31 @@ $(function(){
             dataType: 'json',
             data:data,
             success:function(result){
+              console.log(result);
               if(result.status===201){
-                $("#msg").remove();
-                $(".alert-info").append($("<p>").attr("id","msg").text(result.message));
-                location.reload();
+                $(".msg").remove();
+                $(".alert-info").append($("<p>").addClass("msg").text(result.message));
+                console.log(result.staus);
+
               }
-              else if(result.status===501){
-                $("#msg").remove();
-                $(".alert-dan").append($("<p>").attr("id","msg").text(result.message));
-                 location.reload();
+              if(result.status===501){
+                $(".msg").remove();
+                var y = $("<ul>").addClass("msg");
+                $.each(result.hatalar,function(index,item){
+                y.append($("<li>").text(item.msg));
+                });
+                $(".alert-danger").append($("<p>").addClass("msg").text(result.message)).append(y);
+
               }
-              else if(result.status===500){
-                $("#msg").remove();
-                 $(".alert-info").append($("<p>").attr("id","msg").text(result.message));
-                 location.reload();
+              if(result.status===500){
+                $(".msg").remove();
+                 $(".alert-danger").append($("<p>").addClass("msg").text(result.message));
+
               }
-              else
-                
-            }
-        });
+        }
 
   });
+});
   
   $(document).on('click', '.panel-heading span.clickable', function(e){
     var $this = $(this);
