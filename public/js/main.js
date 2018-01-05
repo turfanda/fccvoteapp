@@ -4,6 +4,7 @@ function getAllUserPollonLoad(){
   $.ajax({
             type: 'GET',
             url: "/getAllUserPoll",
+     xhrFields: {withCredentials: true},
             success:function(data){
               polls=data
               var groupPanel = $("<div>").addClass("panel-group");
@@ -101,6 +102,7 @@ $(function(){
             url: "/cpoll",
             dataType: 'json',
             data:data,
+            xhrFields: {withCredentials: true},
             success:function(result){
               if(result.status===201){
                 alert(result.success);
@@ -141,11 +143,20 @@ $(function(){
             type: 'post',
             url: "/vote",
             data:data,
+         xhrFields: {withCredentials: true},
             success:function(result){
-            if(result==="OK")
-              alert("Vote Taken");
-            else
-              alert("There was a Problem");
+              if(result.status===201){
+                alert(result.success);
+                location.reload();
+              }
+              if(result.status===501){
+                alert(result.success);
+                location.reload();
+              }
+              if(result.status===500){
+                alert(result.success);
+                 location.reload();
+              }
             }
         });
   });
@@ -158,11 +169,20 @@ $(function(){
             type: 'post',
             url: "/deletePoll",
             data:data,
+         xhrFields: {withCredentials: true},
             success:function(result){
-            if(result==="OK")
-              alert("Vote Taken");
-            else
-              alert("There was a Problem");
+              if(result.status===201){
+                alert(result.success);
+                location.reload();
+              }
+              if(result.status===501){
+                alert(result.success);
+                location.reload();
+              }
+              if(result.status===500){
+                alert(result.success);
+                 location.reload();
+              }
             }
         });
   });
@@ -176,6 +196,7 @@ $(function(){
         url: "/getPollResult",
         dataType: 'json',
         data: data,
+       xhrFields: {withCredentials: true},
         success: function(result) {
           var data=[];
           var label=[];

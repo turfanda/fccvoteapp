@@ -16,7 +16,6 @@ router.get("/", function (req, res, nex) {
 });
 
 router.get("/dashboard", Common.ensureAuthenticated, function (req, res, nex) {
-  console.log("dshb")  
   res.render("dashboard");
 });
 
@@ -83,8 +82,6 @@ router.get("/getAllPoll",function(req,res,next){
 });
 
 router.get("/getAllUserPoll",Common.ensureAuthenticated,function(req,res,next){
-  
- console.log("gaup");
   Poll.getPollByUserId(req.user.id,function(err,asd){
    if (err) throw err;
    else{
@@ -138,17 +135,25 @@ router.get('/logout', function (req, res) {
 router.post('/vote',function(req,res){
   
   Poll.updatePoll(req.body.pollName,req.body.vote,function(err){
-    if(err) throw err;
-    res.sendStatus(200);
+    if(err) {
+      throw err;
+      res.json({success:"Internal Errors", status : 500});
+      }
+    else
+      res.json({success:"Vote Tak Deleted", status : 201});
   });
 });
 
 router.post('/deletePoll',Common.ensureAuthenticated,function(req,res){
   
   Poll.deletePollByPollName(req.body.pollName,function(err){
-    if(err) throw err;
+    if(err) {
+      throw err;
+      res.json({success:"Internal Errors", status : 500});
+      }
     else
-      res.sendStatus(200);
+      res.json({success:"Poll Deleted", status : 201});
+
   });
  
 });
