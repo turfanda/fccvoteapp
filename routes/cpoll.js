@@ -19,7 +19,8 @@ router.post("/",Common.ensureAuthenticated,function(req,res,next){
           req.checkBody('pollQuestion', 'Poll Question is required').notEmpty();
           var hatalar = req.validationErrors();
           if (hatalar) {
-            res.render('dashboard', { hatalar: hatalar });}
+            res.render('dashboard', { hatalar: hatalar })
+          }
           else{
             var newPoll = new Poll({
               userId: req.user.id,

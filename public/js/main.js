@@ -101,8 +101,8 @@ $(function(){
             url: "/cpoll",
             dataType: 'json',
             data:data,
-            success:function(){
-            
+            success:function(result){
+            location.reload();
             }
         });
 
