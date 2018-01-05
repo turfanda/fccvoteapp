@@ -102,7 +102,8 @@ $(function(){
             dataType: 'json',
             data:data,
             success:function(result){
-            location.reload();
+            console.log(result);
+            //location.reload();
             }
         });
 

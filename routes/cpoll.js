@@ -32,8 +32,7 @@ router.post("/",Common.ensureAuthenticated,function(req,res,next){
               if(err) throw err;
 
             });
-            req.flash('basarili_mesaj', 'Poll generated you can vote now');
-            res.redirect('/dashboard');
+            res.json({success : "Poll generated you can vote now", status : 200});
           }
         }
     });
