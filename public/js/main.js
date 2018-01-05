@@ -21,7 +21,7 @@ function getAllUserPollonLoad(){
                 var rr=$("<button>").addClass("btn btn-warning updatePoll").text("UpdatePoll");
                 var x = $("<div>").addClass("panel panel-primary ")
                 .append($("<div>").addClass("panel-heading").text(item.pollName).append("<span class='pull-right clickable panel-collapsed'><i class='fa fa-arrow-up'></i></span>"))
-                .append($("<div>").addClass("panel-body").attr("id",item.pollName).text(item.pollQuestion).append(y).append(qq).append(ww).append(ss).append(zz));
+                .append($("<div>").addClass("panel-body").attr("id",item.pollName).text(item.pollQuestion).append(y).append(qq).append(ww).append(ss).append(zz).append(rr));
                 groupPanel.append(x);
               });
               $("#dashjumbotron").append(groupPanel);
@@ -186,15 +186,22 @@ $(function(){
             type: 'post',
             url: "/updateOption",
             data:data,
-         xhrFields: {withCredentials: true},
+            xhrFields: {withCredentials: true},
             success:function(result){
-              if(result.status===201){
-                alert(result.success);
-                location.reload();
-              }
               if(result.status===500){
                 alert(result.success);
                  location.reload();
+              }
+              else{
+                $("#pollName").val(result.pollName);
+                $("#pollQuestion").val(result.pollQuestion);
+                $.each(result.pollItems,function(index,item){
+                  var y =$("<li>")
+                  var x = $("<input type='text'>").attr("id",result.optionName).attr("name",result.optionName).val(result.optionVal);
+                  y.append(x);
+                  $("#option")
+                });
+
               }
             }
         });

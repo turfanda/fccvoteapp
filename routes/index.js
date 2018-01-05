@@ -152,7 +152,7 @@ router.post('/updateOption',function(req,res){
       }
     else{
        res.json(asd);
-       Poll.deletePollByPollName(req.body.pollName,function(err){if(err) throw err;});
+       //Poll.deletePollByPollName(req.body.pollName,function(err){if(err) throw err;});
     }
   });
 });
