@@ -193,15 +193,21 @@ $(function(){
                  location.reload();
               }
               else{
+                if($("#pollName").val()!==""){
+                alert("first submit current poll");
+                  return;
+                }
+                else{
+                $("#deleteOption").css("display","block");
                 $("#pollName").val(result.pollName);
                 $("#pollQuestion").val(result.pollQuestion);
                 $.each(result.pollItems,function(index,item){
                   var y =$("<li>")
-                  var x = $("<input type='text'>").attr("id",result.optionName).attr("name",result.optionName).val(result.optionVal);
+                  var x = $("<input>").val(item.optionVal).attr("id",item.optionName).attr("name",item.optionName).attr("type","text");
                   y.append(x);
-                  $("#option")
+                  $("#options").append(y);
                 });
-
+                }
               }
             }
         });
