@@ -19,7 +19,7 @@ router.post("/",Common.ensureAuthenticated,function(req,res,next){
           req.checkBody('pollQuestion', 'Poll Question is required').notEmpty();
           var hatalar = req.validationErrors();
           if (hatalar) {
-            res.render('dashboard', { hatalar: hatalar })
+            res.json({message:"Fix problems shown in below", hatalar :hatalar, status : 501});
           }
           else{
             var newPoll = new Poll({
@@ -30,9 +30,9 @@ router.post("/",Common.ensureAuthenticated,function(req,res,next){
             });
             Poll.createPoll(newPoll,function(err,poll){
               if(err) throw err;
-
+             res.json({message:"Internal Errors", status : 500});
             });
-            res.json({success : "Poll generated you can vote now", status : 200});
+           res.json({message : "Poll generated you can vote now", status : 201});
           }
         }
     });

@@ -102,8 +102,15 @@ $(function(){
             dataType: 'json',
             data:data,
             success:function(result){
-            console.log(result);
-            //location.reload();
+              if(result.status===201){
+              
+              }
+              else if(result.status===501){
+              }
+              else if(result.status===500){
+              }
+              else
+                
             }
         });
 
