@@ -63,7 +63,6 @@ $(function(){
     var y =$("<li>")
     var x = $("<input type='text'>").attr("id",String.fromCharCode(char+1)).attr("name",String.fromCharCode(char+1))
     char=char+1;
-    $("#optionCount").val(parseInt($("#optionCount").val())+1);
     var z =y.append(x);
     $("#options").append(z);
 
@@ -73,9 +72,7 @@ $(function(){
   $("#deleteOption").on("click",function(event ){
     event.preventDefault();
     $("li:last").remove();
-    char=char-1;
-    $("#optionCount").val(parseInt($("#optionCount").val())-1);
-    
+    char=char-1;  
     if($("#options li").length===0){
       $("#deleteOption").css("display","none")
     }
