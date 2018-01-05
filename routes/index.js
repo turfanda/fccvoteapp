@@ -70,7 +70,6 @@ router.get("/login", function (req, res, nex) {
 });
 
 router.get("/getAllPoll",function(req,res,next){
-  console.log("gap");
   Poll.getAllPoll(function(err,asd){
    if (err) throw err;
    else{
@@ -140,7 +139,7 @@ router.post('/vote',function(req,res){
       res.json({success:"Internal Errors", status : 500});
       }
     else
-      res.json({success:"Vote Tak Deleted", status : 201});
+      res.json({success:"Vote Taken", status : 201});
   });
 });
 

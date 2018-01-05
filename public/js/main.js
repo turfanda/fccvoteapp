@@ -147,15 +147,9 @@ $(function(){
             success:function(result){
               if(result.status===201){
                 alert(result.success);
-                location.reload();
-              }
-              if(result.status===501){
-                alert(result.success);
-                location.reload();
               }
               if(result.status===500){
                 alert(result.success);
-                 location.reload();
               }
             }
         });
@@ -172,10 +166,6 @@ $(function(){
          xhrFields: {withCredentials: true},
             success:function(result){
               if(result.status===201){
-                alert(result.success);
-                location.reload();
-              }
-              if(result.status===501){
                 alert(result.success);
                 location.reload();
               }

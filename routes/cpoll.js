@@ -29,8 +29,8 @@ router.post("/",Common.ensureAuthenticated,function(req,res,next){
               pollItems:pItems,
             });
             Poll.createPoll(newPoll,function(err,poll){
-              if(err) throw err;
-             res.json({success:"Internal Errors", status : 500});
+              if(err) {throw err;
+             res.json({success:"Internal Errors", status : 500});}
             });
            res.json({success : "Poll generated you can vote now", status : 201});
           }
