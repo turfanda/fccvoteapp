@@ -18,6 +18,7 @@ function getAllUserPollonLoad(){
                 var ww=$("<button>").addClass("btn btn-secondary showResult").text("Show Result");
                 var ss=$("<a>").addClass("btn btn-info shareResult").text("Share Result").attr({href:"https://twitter.com/intent/tweet?text=https://fcc-vote-app.glitch.me/showPoll/"+item.pollName+""});
                 var zz=$("<button>").addClass("btn btn-danger deletePoll").text("DeletePoll");
+                var rr=$("<button>").addClass("btn btn-warning updatePoll").text("UpdatePoll");
                 var x = $("<div>").addClass("panel panel-primary ")
                 .append($("<div>").addClass("panel-heading").text(item.pollName).append("<span class='pull-right clickable panel-collapsed'><i class='fa fa-arrow-up'></i></span>"))
                 .append($("<div>").addClass("panel-body").attr("id",item.pollName).text(item.pollQuestion).append(y).append(qq).append(ww).append(ss).append(zz));
@@ -162,6 +163,28 @@ $(function(){
       $.ajax({
             type: 'post',
             url: "/deletePoll",
+            data:data,
+         xhrFields: {withCredentials: true},
+            success:function(result){
+              if(result.status===201){
+                alert(result.success);
+                location.reload();
+              }
+              if(result.status===500){
+                alert(result.success);
+                 location.reload();
+              }
+            }
+        });
+  });
+  
+    $(document).on("click",".updatePoll",function(){
+    var data ={
+    "pollName":$(this).parent().attr("id"),
+    }
+      $.ajax({
+            type: 'post',
+            url: "/updateOption",
             data:data,
          xhrFields: {withCredentials: true},
             success:function(result){

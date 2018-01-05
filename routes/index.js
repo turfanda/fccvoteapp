@@ -143,6 +143,20 @@ router.post('/vote',function(req,res){
   });
 });
 
+router.post('/updateOption',function(req,res){
+  
+  Poll.getPollByPollname(req.body.pollName,function(err,asd){
+    if(err) {
+      throw err;
+      res.json({success:"Internal Errors", status : 500});
+      }
+    else{
+       res.json(asd);
+       Poll.deletePollByPollName(req.body.pollName,function(err){if(err) throw err;});
+    }
+  });
+});
+
 router.post('/deletePoll',Common.ensureAuthenticated,function(req,res){
   
   Poll.deletePollByPollName(req.body.pollName,function(err){
