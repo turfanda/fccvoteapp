@@ -16,7 +16,8 @@ router.get("/", function (req, res, nex) {
 });
 
 router.get("/dashboard", Common.ensureAuthenticated, function (req, res, nex) {
-    res.render("dashboard");
+  console.log("ds")  
+  res.render("dashboard");
 });
 
 router.get("/register", function (req, res, nex) {
@@ -70,7 +71,8 @@ router.get("/login", function (req, res, nex) {
 });
 
 router.get("/getAllPoll",function(req,res,next){
- Poll.getAllPoll(function(err,asd){
+  console.log("gap");
+  Poll.getAllPoll(function(err,asd){
    if (err) throw err;
    else{
      res.json(asd);
@@ -82,7 +84,8 @@ router.get("/getAllPoll",function(req,res,next){
 
 router.get("/getAllUserPoll",Common.ensureAuthenticated,function(req,res,next){
   
- Poll.getPollByUserId(req.user.id,function(err,asd){
+ console.log("gaup");
+  Poll.getPollByUserId(req.user.id,function(err,asd){
    if (err) throw err;
    else{
      res.json(asd);
