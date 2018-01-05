@@ -207,6 +207,7 @@ $(function(){
                   y.append(x);
                   $("#options").append(y);
                 });
+                $('html, body').animate({scrollTop:0}, 'slow');
                 }
               }
             }
