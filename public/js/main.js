@@ -104,14 +104,15 @@ $(function(){
             success:function(result){
               if(result.status===201){
                 alert(result.success);
+                location.reload(true);
               }
               if(result.status===501){
-                var x = $.each(result.jat)
-                
                 alert(result.success);
+                location.reload(true);
               }
               if(result.status===500){
                 alert(result.success);
+                 location.reload(true);
               }
         }
 

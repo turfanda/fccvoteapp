@@ -1,5 +1,6 @@
 module.exports.ensureAuthenticated = function (req, res, next) {
-    if (req.isAuthenticated()) {
+  console.log(req.isAuthenticated()) ;
+  if (req.isAuthenticated()) {
         return next();
     } else {
         res.redirect('/login');
