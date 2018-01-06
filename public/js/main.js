@@ -1,5 +1,6 @@
 var char=64;
 var polls;
+var pollChartjs;
 function makeid() {
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -240,14 +241,15 @@ $(function(){
           var backgroundColor=[];
           var val=[]
           $.each(result.pollItems,function(index,item){
+            
             data.push(item.optionCount);
             label.push(item.optionName);
             val.push(item.optionVal);
             backgroundColor.push("rgba("+Math.floor(Math.random() * 255)+", "+Math.floor(Math.random() * 255)+", "+Math.floor(Math.random() * 255)+", 1)");
           });
-          console.log(backgroundColor);
+           
             var ctx = $("#pollChart");
-            var pollChartjs = new Chart(ctx, {
+            pollChartjs = new Chart(ctx, {
                 type: 'pie',
                 data: {
                     datasets: [{
