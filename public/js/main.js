@@ -10,6 +10,7 @@ function getAllUserPollonLoad(){
               var groupPanel = $("<div>").addClass("panel-group");
               $.each(polls,function(index,item){
                 var y=$("<div>")
+                var x =
                 for(var i=0;i<item.pollItems.length;i++){
                 var q =$("<div>").addClass("radio").append($("<input type='radio' name='options'>").val(item.pollItems[i].optionName)).append($("<span>").text(item.pollItems[i].optionVal));
                 y.append(q);
@@ -20,7 +21,7 @@ function getAllUserPollonLoad(){
                 var zz=$("<button>").addClass("btn btn-danger deletePoll").text("DeletePoll");
                 var rr=$("<button>").addClass("btn btn-warning updatePoll").text("UpdatePoll");
                 var x = $("<div>").addClass("panel panel-primary ")
-                .append($("<div>").addClass("panel-heading").append($("<a>").text(item.PollName).attr("data-toggle","collapse").attr("href","#collapse1")))
+                .append($("<div>").addClass("panel-heading").append($("<div>").addClass("panel-title").append($("<a>").text(item.pollName).attr("data-toggle","collapse").attr("href","#collapse1"))))
                 .append($("<div>").attr("id","collapse1").addClass("panel-collapse collapse").append($("<div>").addClass("panel-body").attr("id",item.pollName).text(item.pollQuestion).append(y).append(qq).append(ww).append(ss).append(zz).append(rr)));
                 groupPanel.append(x);
               });
