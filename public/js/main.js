@@ -20,8 +20,8 @@ function getAllUserPollonLoad(){
                 var zz=$("<button>").addClass("btn btn-danger deletePoll").text("DeletePoll");
                 var rr=$("<button>").addClass("btn btn-warning updatePoll").text("UpdatePoll");
                 var x = $("<div>").addClass("panel panel-primary ")
-                .append($("<div>").addClass("panel-heading").text(item.pollName).append("<span class='pull-right clickable panel-collapsed'><i class='fa fa-arrow-up'></i></span>"))
-                .append($("<div>").addClass("panel-body").attr("id",item.pollName).text(item.pollQuestion).append(y).append(qq).append(ww).append(ss).append(zz).append(rr));
+                .append($("<div>").addClass("panel-heading").append($("<a>").text(item.PollName).attr("data-toggle","collapse").attr("href","#collapse1")))
+                .append($("<div>").attr("id","collapse1").addClass("panel-collapse collapse").append($("<div>").addClass("panel-body").attr("id",item.pollName).text(item.pollQuestion).append(y).append(qq).append(ww).append(ss).append(zz).append(rr)));
                 groupPanel.append(x);
               });
               $("#dashjumbotron").append(groupPanel);
