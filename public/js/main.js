@@ -1,5 +1,15 @@
 var char=64;
 var polls;
+function makeid() {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (var i = 0; i < 6; i++)
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    return text;
+}
+
 function getAllUserPollonLoad(){
   $.ajax({
             type: 'GET',
@@ -10,7 +20,7 @@ function getAllUserPollonLoad(){
               var groupPanel = $("<div>").addClass("panel-group");
               $.each(polls,function(index,item){
                 var y=$("<div>")
-                var x =
+                var randomId=makeid();
                 for(var i=0;i<item.pollItems.length;i++){
                 var q =$("<div>").addClass("radio").append($("<input type='radio' name='options'>").val(item.pollItems[i].optionName)).append($("<span>").text(item.pollItems[i].optionVal));
                 y.append(q);
@@ -21,8 +31,8 @@ function getAllUserPollonLoad(){
                 var zz=$("<button>").addClass("btn btn-danger deletePoll").text("DeletePoll");
                 var rr=$("<button>").addClass("btn btn-warning updatePoll").text("UpdatePoll");
                 var x = $("<div>").addClass("panel panel-primary ")
-                .append($("<div>").addClass("panel-heading").append($("<div>").addClass("panel-title").append($("<a>").text(item.pollName).attr("data-toggle","collapse").attr("href","#collapse1"))))
-                .append($("<div>").attr("id","collapse1").addClass("panel-collapse collapse").append($("<div>").addClass("panel-body").attr("id",item.pollName).text(item.pollQuestion).append(y).append(qq).append(ww).append(ss).append(zz).append(rr)));
+                .append($("<div>").addClass("panel-heading").append($("<div>").addClass("panel-title").append($("<a>").text(item.pollName).attr("data-toggle","collapse").attr("href","#"+randomId))))
+                .append($("<div>").attr("id",randomId).addClass("panel-collapse collapse").append($("<div>").addClass("panel-body").attr("id",item.pollName).text(item.pollQuestion).append(y).append(qq).append(ww).append(ss).append(zz).append(rr)));
                 groupPanel.append(x);
               });
               $("#dashjumbotron").append(groupPanel);
@@ -39,6 +49,7 @@ function getAllPollonLoad(){
               var groupPanel = $("<div>").addClass("panel-group");
               $.each(polls,function(index,item){
                 var y=$("<div>")
+                var randomId=makeid();
                 for(var i=0;i<item.pollItems.length;i++){
                 var q =$("<div>").addClass("radio").append($("<input type='radio' name='options'>").val(item.pollItems[i].optionName)).append($("<span>").text(item.pollItems[i].optionVal));
                 y.append(q);
@@ -46,8 +57,9 @@ function getAllPollonLoad(){
                 var qq=$("<button>").addClass("btn btn-primary vote").text("Vote");
                 var ww=$("<button>").addClass("btn btn-secondary showResult").text("Show Result");
                 var x = $("<div>").addClass("panel panel-primary ")
-                .append($("<div>").addClass("panel-heading").text(item.pollName).append("<span class='pull-right clickable panel-collapsed'><i class='fa fa-arrow-up'></i></span>"))
-                .append($("<div>").addClass("panel-body").attr("id",item.pollName).text(item.pollQuestion).append(y).append(qq).append(ww));
+                .append($("<div>").addClass("panel-heading").append($("<div>").addClass("panel-title").append($("<a>").text(item.pollName).attr("data-toggle","collapse").attr("href","#"+randomId))))
+                .append($("<div>").attr("id",randomId).addClass("panel-collapse collapse").append($("<div>").addClass("panel-body").attr("id",item.pollName).text(item.pollQuestion).append(y).append(qq).append(ww)));
+                groupPanel.append(x);
                 groupPanel.append(x);
               });
               $("#indexjumbotron").append(groupPanel);
